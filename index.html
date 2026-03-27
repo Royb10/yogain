@@ -298,6 +298,7 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top left;
 }
 .team-card h3 {
   font-size: 26px;
@@ -485,14 +486,14 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--shadow-lg);
 }
 .principle-icon {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: 0 auto 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.principle-icon img { width: 88px; height: 88px; object-fit: contain; }
+.principle-icon img { width: 120px; height: 120px; object-fit: contain; }
 .principle-card h4 {
   font-size: 16px;
   font-weight: 700;
@@ -1088,49 +1089,49 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="principles-grid">
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_dc9e0e041d404fef920f630ad72f788d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-03.png" alt="">
+          <img src="icons/yogain (1).png" alt="">
         </div>
         <h4>תרגול יוגה מבוסס תודעה</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_260a9e6ec0594888a31cb6ccecb44376~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-01.png" alt="">
+          <img src="icons/yogain (2).png" alt="">
         </div>
         <h4>עוגני בטיחות ועקרונות ליבה באימון</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_0808c05ba3dc468eb5ca880865ff2d2d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-05.png" alt="">
+          <img src="icons/yogain (3).png" alt="">
         </div>
         <h4>שפה גופנית-רגשית עדינה ומדויקת</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/a5d4a2_dc15c3d01a24498c95e0a6d721f34ef7~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7-07.png" alt="">
+          <img src="icons/yogain (4).png" alt="">
         </div>
         <h4>התפתחות אישית</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_2ddca25d0ae9480ab67ee1ca20477077~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-02.png" alt="">
+          <img src="icons/yogain (5).png" alt="">
         </div>
         <h4>העמקה בפילוסופיה</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_dc9e0e041d404fef920f630ad72f788d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-03.png" alt="">
+          <img src="icons/yogain (6).png" alt="">
         </div>
         <h4>כלים להוראה אותנטית</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_260a9e6ec0594888a31cb6ccecb44376~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-01.png" alt="">
+          <img src="icons/yogain (7).png" alt="">
         </div>
         <h4>הנחיה כמרחב ריפוי</h4>
       </div>
       <div class="principle-card fade-in">
         <div class="principle-icon">
-          <img src="https://static.wixstatic.com/media/ca2d1f_0808c05ba3dc468eb5ca880865ff2d2d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-05.png" alt="">
+          <img src="icons/yogain (8).png" alt="">
         </div>
         <h4>עבודה קבוצתית טרנספורמטיבית</h4>
       </div>
@@ -1391,55 +1392,60 @@ function scrollTestimonials(dir) {
 }
 
 // Integrative Principles Viewer
+// SVG icon helper – generates wellness-style line icons in purple
+function svgIcon(paths, vb = '0 0 64 64') {
+  return "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + vb + '" fill="none" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + paths + '</svg>');
+}
+
 const principles = [
   {
     title: 'אשטנגה יוגה',
-    icon: 'icons/yogain (7).png',
+    icon: svgIcon('<circle cx="32" cy="14" r="6"/><path d="M32 20v14M24 28l8 6 8-6"/><path d="M22 44c0-6 4-10 10-10s10 4 10 10"/><path d="M18 54h28"/><circle cx="32" cy="32" r="20" stroke-dasharray="4 3"/>'),
     desc: 'שמונת האיברים של היוגה – יאמה, נייאמה, אסנה, פרנאיאמה, פרטיאהרה, דהרנה, דהיאנה וסמאדהי – מהווים את עמוד השדרה של ההכשרה. הם מציעים מפת דרכים חיה לתרגול שמשלב גוף, נשימה, ריכוז ותודעה, ומלווה את התלמידים בצמיחה אישית ומקצועית לאורך כל הדרך.'
   },
   {
     title: 'אינטגרציה',
-    icon: 'icons/yogain (3).png',
+    icon: svgIcon('<circle cx="24" cy="32" r="14" opacity="0.5"/><circle cx="40" cy="32" r="14" opacity="0.5"/><path d="M32 22v20M28 26c2.5 2 5.5 2 8 0M28 38c2.5-2 5.5-2 8 0"/>'),
     desc: 'הגישה האינטגרטיבית שואבת ממסורות יוגה מגוונות, מפסיכולוגיה מערבית ומעולם הסומטיקה. היא מחברת בין ידע עתיק לתובנות עכשוויות, ומאפשרת למורה העתידי לבנות שפה ייחודית שנובעת מתוך חוויה אישית ולא מתבנית אחידה.'
   },
   {
     title: 'פעילות גופנית בשדה רוחני',
-    icon: 'icons/yogain (1).png',
+    icon: svgIcon('<circle cx="32" cy="16" r="5"/><path d="M32 21v10l-8 12M32 31l8 12"/><path d="M22 28l10 3 10-3"/><path d="M16 52c4-8 8-12 16-12s12 4 16 12" stroke-dasharray="4 3"/><circle cx="32" cy="8" r="2" fill="#7B5EA7" stroke="none"/>'),
     desc: 'התרגול הגופני ביוגה אינטגרטיבית אינו רק פיזי – הוא מתקיים בתוך שדה של קשב, כוונה ומשמעות. כל תנועה היא הזדמנות להקשבה פנימית, וכל תרגול הוא מפגש בין הגוף לבין המרחב הרוחני שמזמין אותו לצמוח.'
   },
   {
     title: 'שזירה ופרימה',
-    icon: 'icons/yogain (5).png',
+    icon: svgIcon('<path d="M16 16c8 8 24 8 32 0"/><path d="M16 28c8 8 24 8 32 0"/><path d="M16 40c8 8 24 8 32 0"/><path d="M16 16c8-8 24-8 32 0" stroke-dasharray="4 3"/><path d="M16 28c8-8 24-8 32 0" stroke-dasharray="4 3"/><path d="M16 40c8-8 24-8 32 0" stroke-dasharray="4 3"/><path d="M16 52c8 8 24 8 32 0"/>'),
     desc: 'למידה אינטגרטיבית היא תהליך של שזירה – חיבור שכבות של ידע, חוויה ותובנה – ושל פרימה – פירוק דפוסים ישנים כדי לאפשר צמיחה חדשה. התהליך הזה מזמין גמישות מחשבתית ואומץ להתבונן מחדש.'
   },
   {
     title: 'יוגה כאומנות של מערכות יחסים',
-    icon: 'icons/yogain (9).png',
+    icon: svgIcon('<circle cx="22" cy="24" r="6"/><circle cx="42" cy="24" r="6"/><circle cx="32" cy="42" r="6"/><path d="M27 28l5 8M37 28l-5 8"/><path d="M22 30v6M42 30v6"/><path d="M26 42h12"/>'),
     desc: 'יוגה אינטגרטיבית מבינה שהתרגול מתרחש תמיד בתוך מערכת יחסים – עם עצמנו, עם התלמידים ועם המרחב. ההכשרה מפתחת רגישות ליחסים הבין-אישיים בשיעור ומלמדת כיצד לבנות מרחב בטוח שמזמין שינוי.'
   },
   {
     title: 'שפה של הזמנה וחקירה',
-    icon: 'icons/yogain (8).png',
+    icon: svgIcon('<path d="M14 48V20a4 4 0 014-4h28a4 4 0 014 4v28"/><path d="M22 28h20M22 36h14"/><path d="M32 48v-8"/><circle cx="32" cy="12" r="4"/><path d="M28 12h8" stroke-dasharray="2 2"/>'),
     desc: 'במקום הנחיות דירקטיביות, אנו מלמדים שפה שמזמינה חקירה עצמית. כל הנחיה נבנית כהזמנה – לחוש, לגלות, להתנסות. כך המורה מעניק לתלמיד אוטונומיה על חוויית התרגול שלו ופותח דלת לגילוי אישי.'
   },
   {
     title: 'קריאת כיוון ותהליך',
-    icon: 'icons/yogain (6).png',
+    icon: svgIcon('<circle cx="32" cy="32" r="22"/><path d="M32 14v8M32 42v8"/><path d="M14 32h8M42 32h8"/><circle cx="32" cy="32" r="4" fill="#7B5EA7" stroke="none"/><path d="M32 28l-6-10" stroke-width="2.5"/>'),
     desc: 'מורה אינטגרטיבי לומד לקרוא את מה שקורה בחדר – הדינמיקה הקבוצתית, האנרגיה, הצרכים המשתנים – ולהתאים את השיעור בזמן אמת. זוהי יכולת של ניווט רגיש שמתפתחת לאורך ההכשרה דרך תרגול, צפייה והתנסות.'
   },
   {
     title: 'מיטביות ועונג',
-    icon: 'icons/yogain (4).png',
+    icon: svgIcon('<path d="M32 52c-12 0-20-8-20-20 0-8 6-16 12-20 2-1 4 0 4 2v6c0 2 2 4 4 4s4-2 4-4v-6c0-2 2-3 4-2 6 4 12 12 12 20 0 12-8 20-20 20z"/><circle cx="32" cy="38" r="6"/><path d="M32 32v-6"/>'),
     desc: 'אנו מאמינים שתרגול יוגה צריך להיות מקור לעונג ולמיטביות – לא רק למאמץ ומשמעת. הגישה שלנו מחפשת את הנקודה שבה המאמץ הופך למשחק, והתרגול הופך לחגיגה של הגוף והנפש.'
   },
   {
     title: 'סופרפוזיציה קיומית',
-    icon: 'icons/yogain (2).png',
+    icon: svgIcon('<circle cx="32" cy="32" r="20" stroke-dasharray="6 4"/><circle cx="32" cy="32" r="10"/><circle cx="32" cy="32" r="3" fill="#7B5EA7" stroke="none"/><path d="M12 32h8M44 32h8M32 12v8M32 44v8"/><path d="M19 19l5 5M40 40l5 5M19 45l5-5M40 24l5-5"/>'),
     desc: 'בהשראת פיזיקה קוונטית, אנו מתרגלים להחזיק מספר אמיתות בו-זמנית. במקום "או-או" – "גם-וגם". היכולת להכיל מורכבות, סתירות ומתח בין הפכים היא מיומנות קיומית שמעשירה את ההוראה ואת החיים.'
   },
   {
     title: 'אוטונומיה, ריבונות',
-    icon: 'icons/yogain (9).png',
+    icon: svgIcon('<circle cx="32" cy="18" r="7"/><path d="M32 25v20"/><path d="M22 34l10-4 10 4"/><path d="M20 52h24"/><path d="M24 48l8-3 8 3"/><circle cx="32" cy="12" r="2" fill="#7B5EA7" stroke="none"/>'),
     desc: 'מטרת ההכשרה היא לפתח מורים ריבוניים – כאלה שמלמדים מתוך הקול הייחודי שלהם ולא מתוך חיקוי. אנו מטפחים אוטונומיה מקצועית ואישית, ומעודדים כל בוגר למצוא את הדרך שלו ביוגה ובהוראה.'
   }
 ];
