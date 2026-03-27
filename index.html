@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הכשרת מורים ליוגה אינטגרטיבית | ציפי נגב</title>
+<meta name="description" content="קורס הכשרת מורים ליוגה אינטגרטיבית בהנחיית ציפי נגב וטל וקסמן. 500 שעות, שנתיים, הסמכה בינלאומית. נובמבר 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --purple: #7B5EA7;
+  --purple-hover: #6A4F94;
+  --purple-light: #F3EFF8;
+  --purple-soft: #E8E0F0;
+  --blue: #4A6FA5;
+  --cream: #fffef6;
+  --beige: #ede6da;
+  --olive: #dfe7c6;
+  --lime: #e2f7b3;
+  --peach: #edd3c7;
+  --dark: #2D2A33;
+  --dark-light: #4A4553;
+  --white: #FFFFFF;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 4px 24px rgba(123, 94, 167, 0.08);
+  --shadow-lg: 0 8px 40px rgba(123, 94, 167, 0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--dark);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+a { color: var(--blue); text-decoration: none; transition: color 0.3s; }
+a:hover { color: var(--purple); }
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.text-blue { color: var(--blue); }
+.text-purple { color: var(--purple); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple);
+  color: var(--white);
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  text-decoration: none;
+}
+.btn:hover { background: var(--purple-hover); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-outline {
+  background: transparent;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+}
+.btn-outline:hover { background: var(--purple); color: var(--white); }
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--white);
+}
+.btn-whatsapp:hover { background: #1DA851; color: var(--white); }
+
+.section-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--dark);
+}
+.section-subtitle {
+  font-size: 20px;
+  color: var(--blue);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(255, 254, 246, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(123, 94, 167, 0.08);
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.nav-logo img { height: 44px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--dark);
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  padding: 4px 0;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--purple);
+  transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--purple); }
+.nav-cta { font-size: 14px !important; padding: 10px 24px !important; color: var(--white) !important; }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { color: var(--white) !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.hamburger span {
+  width: 26px;
+  height: 2.5px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 72px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/1 (339).jpg');
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(45, 42, 51, 0.7) 0%, rgba(123, 94, 167, 0.55) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+  padding: 80px 24px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+.hero-content h1 {
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.hero-content .hero-sub {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+.hero-content p {
+  font-size: 18px;
+  opacity: 0.85;
+  max-width: 680px;
+  margin: 0 auto 40px;
+  line-height: 1.9;
+}
+.hero .btn { font-size: 20px; padding: 16px 44px; }
+
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.hero-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== STATS ===== */
+.stats {
+  background: var(--cream);
+  padding: 80px 0 60px;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.stat-number {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--purple);
+  line-height: 1.2;
+}
+.stat-label {
+  font-size: 16px;
+  color: var(--dark-light);
+  margin-top: 8px;
+}
+
+/* ===== TEAM ===== */
+.team {
+  background: var(--white);
+  padding: 100px 0;
+  position: relative;
+}
+.team-wave-top {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+}
+.team-wave-top svg { display: block; width: 100%; }
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+.team-card {
+  text-align: center;
+}
+.team-img-wrap {
+  width: 280px;
+  height: 370px;
+  border-radius: 140px 140px 20px 20px;
+  overflow: hidden;
+  margin: 0 auto 24px;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--beige);
+}
+.team-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-card h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.team-card .team-role {
+  color: var(--purple);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.team-card p {
+  font-size: 16px;
+  color: var(--dark-light);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.team-card .team-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.team-synergy {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 20px;
+  color: var(--dark-light);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--peach);
+  padding: 32px 40px;
+  border-radius: var(--radius);
+  line-height: 1.9;
+}
+
+/* ===== UNIQUENESS ===== */
+.uniqueness {
+  background: var(--beige);
+  padding: 100px 0;
+  position: relative;
+}
+.uniqueness-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.uniqueness-text ul {
+  list-style: none;
+  margin-top: 24px;
+}
+.uniqueness-text li {
+  padding: 12px 0;
+  padding-right: 32px;
+  position: relative;
+  font-size: 17px;
+}
+.uniqueness-text li::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--purple);
+  opacity: 0.7;
+}
+.uniqueness-img {
+  border-radius: 120px 120px 20px 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.uniqueness-img img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* ===== DETAILS ===== */
+.details {
+  background: var(--cream);
+  padding: 100px 0;
+}
+.details-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 48px;
+  box-shadow: var(--shadow);
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.detail-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.detail-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--purple-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail-icon svg { width: 24px; height: 24px; color: var(--purple); }
+.detail-item h4 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.detail-item p { font-size: 15px; color: var(--dark-light); line-height: 1.6; }
+
+/* ===== OPEN DAY ===== */
+.open-day {
+  background: var(--peach);
+  color: var(--dark);
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.open-day::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(123,94,167,0.04);
+}
+.open-day::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(123,94,167,0.03);
+}
+.open-day .section-title { color: var(--dark); }
+.open-day p {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  color: var(--dark-light);
+  line-height: 1.9;
+}
+.open-day .btn {
+  background: var(--purple);
+  color: var(--white);
+  font-weight: 700;
+}
+.open-day .btn:hover { background: var(--purple-hover); color: var(--white); }
+
+/* ===== COURSE CONTENT ===== */
+.course-content {
+  background: var(--white);
+  padding: 100px 0;
+}
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.principle-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.principle-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.principle-icon img { width: 88px; height: 88px; object-fit: contain; }
+.principle-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* ===== WHO IS IT FOR ===== */
+.who-for {
+  background: var(--cream);
+  padding: 100px 0;
+}
+.who-for-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.who-for-text p { margin-bottom: 24px; color: var(--dark-light); }
+.who-for-img {
+  border-radius: 120px 120px 20px 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.who-for-img img { width: 100%; height: 500px; object-fit: cover; }
+
+/* ===== INTEGRATIVE PRINCIPLES ===== */
+.integrative {
+  background: var(--beige);
+  padding: 80px 0;
+}
+.integrative-viewer {
+  max-width: 700px;
+  margin: 40px auto 0;
+  background: var(--white);
+  border-radius: 25px;
+  padding: 48px 40px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  position: relative;
+}
+.integrative-viewer-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  transition: opacity 0.3s ease;
+}
+.integrative-viewer h3,
+.integrative-viewer p {
+  transition: opacity 0.3s ease;
+}
+.integrative-viewer.switching .integrative-viewer-icon,
+.integrative-viewer.switching h3,
+.integrative-viewer.switching p {
+  opacity: 0;
+}
+.integrative-viewer-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.integrative-viewer h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+.integrative-viewer p {
+  font-size: 16px;
+  color: var(--dark-light);
+  line-height: 1.9;
+  min-height: 120px;
+}
+.integrative-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+.integrative-nav button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  background: var(--white);
+  color: var(--purple);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.integrative-nav button:hover { background: var(--purple); color: var(--white); }
+.integrative-counter {
+  font-size: 15px;
+  color: var(--dark-light);
+  min-width: 60px;
+}
+.integrative-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.integrative-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--beige);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+.integrative-dot.active {
+  background: var(--purple);
+  transform: scale(1.2);
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials {
+  background: var(--white);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.testimonials-track::-webkit-scrollbar { display: none; }
+.testimonial-card {
+  flex-shrink: 0;
+  width: 400px;
+  background: var(--beige);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  scroll-snap-align: start;
+  position: relative;
+}
+.testimonial-quote {
+  font-size: 64px;
+  color: var(--purple);
+  opacity: 0.2;
+  line-height: 1;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-family: serif;
+}
+.testimonial-card p {
+  font-size: 16px;
+  color: var(--dark-light);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.testimonial-author {
+  font-weight: 700;
+  color: var(--dark);
+  font-size: 17px;
+}
+.testimonial-title {
+  font-size: 14px;
+  color: var(--purple);
+  font-weight: 400;
+}
+.testimonials-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.testimonials-nav button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  background: var(--white);
+  color: var(--purple);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.testimonials-nav button:hover { background: var(--purple); color: var(--white); }
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--cream);
+  padding: 100px 0;
+}
+.faq-list {
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.faq-question {
+  width: 100%;
+  text-align: right;
+  padding: 20px 24px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dark);
+  transition: color 0.3s;
+}
+.faq-question:hover { color: var(--purple); }
+.faq-question .faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--purple-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--purple); }
+.faq-item.open .faq-icon svg { color: var(--white); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-answer {
+  max-height: 500px;
+  padding: 0 24px 24px;
+}
+.faq-answer p {
+  font-size: 16px;
+  color: var(--dark-light);
+  line-height: 1.9;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: var(--beige);
+  padding: 80px 0;
+}
+.contact-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.contact-form input {
+  padding: 16px 20px;
+  border: 2px solid var(--beige);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--white);
+  transition: border-color 0.3s;
+  text-align: right;
+}
+.contact-form input:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+.contact-form input::placeholder { color: #B0A8BB; }
+.contact-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* ===== NEWSLETTER ===== */
+.newsletter {
+  background: var(--white);
+  padding: 60px 0;
+  text-align: center;
+}
+.newsletter h3 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.newsletter p { color: var(--dark-light); margin-bottom: 24px; }
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.newsletter-form input {
+  flex: 1;
+  min-width: 160px;
+  padding: 14px 20px;
+  border: 2px solid var(--beige);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: inherit;
+  text-align: right;
+}
+.newsletter-form input:focus { outline: none; border-color: var(--purple); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.7);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 15px;
+}
+.footer a { color: rgba(255,255,255,0.9); }
+.footer a:hover { color: var(--white); }
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(255, 254, 246, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  padding: 40px 24px;
+}
+.mobile-menu.active { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+.mobile-menu a {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark);
+}
+.mobile-menu a:hover { color: var(--purple); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .principles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-content { padding: 60px 20px; }
+  .hero-content h1 { font-size: 36px; }
+
+  .stats-grid { grid-template-columns: 1fr; gap: 16px; }
+  .stat-card { padding: 24px; }
+  .stat-number { font-size: 32px; }
+
+  .team-grid { grid-template-columns: 1fr; gap: 48px; }
+  .team-img-wrap { width: 220px; height: 290px; border-radius: 110px 110px 16px 16px; }
+
+  .uniqueness-inner { grid-template-columns: 1fr; }
+  .uniqueness-img { order: -1; }
+  .uniqueness-img img { height: 280px; }
+
+  .details-card { padding: 32px 24px; }
+  .details-grid { grid-template-columns: 1fr; }
+
+  .principles-grid { grid-template-columns: 1fr; }
+
+  .who-for-inner { grid-template-columns: 1fr; }
+  .who-for-img { order: -1; }
+  .who-for-img img { height: 280px; }
+
+  .testimonial-card { width: 320px; padding: 32px 24px; }
+
+  .contact-row { grid-template-columns: 1fr; }
+  .contact-buttons { flex-direction: column; align-items: stretch; }
+
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form input { min-width: auto; }
+
+  .section-title { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo-yogain.png" alt="ציפי נגב - יוגה אינטגרטיבית">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#team">צוות ההוראה</a></li>
+      <li><a href="#uniqueness">ייחודיות הקורס</a></li>
+      <li><a href="#content">תכני ההכשרה</a></li>
+      <li><a href="#faq">שאלות נפוצות</a></li>
+      <li><a href="#contact" class="btn nav-cta">הרשמה ליום פתוח</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="תפריט">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#team" onclick="closeMenu()">צוות ההוראה</a>
+  <a href="#uniqueness" onclick="closeMenu()">ייחודיות הקורס</a>
+  <a href="#content" onclick="closeMenu()">תכני ההכשרה</a>
+  <a href="#faq" onclick="closeMenu()">שאלות נפוצות</a>
+  <a href="#contact" class="btn" onclick="closeMenu()">הרשמה ליום פתוח</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
+    <div class="hero-sub">ימים פתוחים לקורס תשפ״ז &mdash; נובמבר 2026</div>
+    <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
+    <a href="#contact" class="btn">הרשמו עכשיו ליום הפתוח</a>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,80 C360,120 720,40 1440,80 L1440,120 L0,120 Z" fill="#fffef6"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card fade-in">
+        <div class="stat-number">500</div>
+        <div class="stat-label">שעות לימוד אקדמיות</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">שנתיים</div>
+        <div class="stat-label">תהליך מתמשך ומעמיק</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">בינלאומית</div>
+        <div class="stat-label">הסמכה מוכרת בארץ ובעולם</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">צוות ההוראה</h2>
+      <p class="section-subtitle">מורות בדרך, מלוות במסע</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-in">
+        <div class="team-img-wrap">
+          <img src="images/1 (66).jpg" alt="ציפי נגב">
+        </div>
+        <h3>ציפי נגב</h3>
+        <div class="team-role">מורה ליוגה אינטגרטיבית ומכשירת מורים</div>
+        <p>ציפי נגב עוסקת ביוגה קרוב לחמישים שנה. היא חוקרת את הקשר בין התרגול הגופני לבין הפילוסופיה והפסיכולוגיה של היוגה, ומכשירה מורים ומלווי תהליכי ריפוי ביוגה כתרפיה. שירתה כיו״ר ארגון מורי היוגה בישראל ופועלת לקידום היוגה בחינוך.</p>
+        <p style="margin-top:12px; font-style:italic; font-size:15px; color:var(--purple);">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
+        <a href="#" class="team-link">אודות ציפי &laquo;</a>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-img-wrap">
+          <img src="images/1 (16).jpg" alt="טל וקסמן">
+        </div>
+        <h3>טל וקסמן</h3>
+        <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
+        <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה ויוגה אינטגרטיבית. ליוותה את ציפי כאסיסטנטית במשך שני מחזורי קורס מלאים. סגנון ההוראה שלה משלב תשומת לב, רכות, זרימה, סקרנות ויצירתיות.</p>
+        <p style="margin-top:12px; font-size:15px; color:var(--dark-light);">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
+        <a href="#" class="team-link">אודות טל &laquo;</a>
+      </div>
+    </div>
+    <div class="team-synergy fade-in">
+      המפגש בין ציפי לטל מייצר מרחב למידה עדין, מכיל ומאפשר, המנגיש את מפות היוגה המסורתית כדי לסייע לנו בתקופה הנוכחית המאתגרת כל כך. דווקא בתקופה זו, היוגה היא מתנה והזדמנות נפלאה למסע תמיכה בעצמנו.
+    </div>
+  </div>
+</section>
+
+<!-- UNIQUENESS -->
+<section class="uniqueness" id="uniqueness">
+  <div class="container">
+    <div class="uniqueness-inner">
+      <div class="uniqueness-text fade-in">
+        <h2 class="section-title">ייחודיות הקורס</h2>
+        <p class="text-blue">תכנית הלימודים מציעה שילוב נדיר בין עומק תיאורטי לתרגול חווייתי, ומתמקדת בפיתוח המורה הפנימי של כל משתתף.</p>
+        <ul>
+          <li>מרחב קבוצתי מובנה כתהליך התפתחותי</li>
+          <li>הקבוצה משמשת מראה להשתקפויות, קהילה ומשענת</li>
+          <li>500 שעות לימוד אקדמיות לאורך שנתיים</li>
+          <li>מוכר על ידי ארגון מורי היוגה בישראל</li>
+          <li>הסמכה בינלאומית &ndash; ניתן ללמד בארץ ובעולם</li>
+          <li>גישה אינטגרטיבית ייחודית שתועדה ונחקרה באקדמיה</li>
+        </ul>
+      </div>
+      <div class="uniqueness-img fade-in">
+        <img src="images/1 (314).jpg" alt="ציפי נגב מלמדת בקורס">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="details" id="details">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">פרטים מעשיים</h2>
+      <p class="section-subtitle">כל מה שצריך לדעת על מבנה הקורס</p>
+    </div>
+    <div class="details-card fade-in">
+      <div class="details-grid">
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          </div>
+          <div>
+            <h4>ימי שני | 7:30&ndash;14:00</h4>
+            <p>30 מפגשים בכל שנת לימוד</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          </div>
+          <div>
+            <h4>הסטודיו</h4>
+            <p>רחוב אלפסי 1, נחלת עדה, הרצליה</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+          </div>
+          <div>
+            <h4>שנה א&rsquo;</h4>
+            <p>נובמבר 2026 &ndash; יוני 2027<br>250 שעות לימוד</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+          </div>
+          <div>
+            <h4>שנה ב&rsquo;</h4>
+            <p>נובמבר 2027 &ndash; יוני 2028<br>250 שעות לימוד</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN DAY -->
+<section class="open-day" id="open-day">
+  <div class="container fade-in">
+    <h2 class="section-title">מפגש ההכרות</h2>
+    <p>מפגש ההכרות יאפשר לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות.</p>
+    <p style="opacity:0.75; font-size:16px;">הצטרפות למפגש ההכרות בהרשמה מראש ואינה כרוכה בתשלום.</p>
+    <a href="#contact" class="btn">שריינו לי מקום למפגש היכרות</a>
+  </div>
+</section>
+
+<!-- COURSE CONTENT -->
+<section class="course-content" id="content">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">תכני ההכשרה</h2>
+      <p class="section-subtitle">הכשרת מורים ומורות להוראה מעמיקה, רגישה ומקיפה של יוגה אינטגרטיבית</p>
+    </div>
+    <div class="principles-grid">
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_dc9e0e041d404fef920f630ad72f788d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-03.png" alt="">
+        </div>
+        <h4>תרגול יוגה מבוסס תודעה</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_260a9e6ec0594888a31cb6ccecb44376~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-01.png" alt="">
+        </div>
+        <h4>עוגני בטיחות ועקרונות ליבה באימון</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_0808c05ba3dc468eb5ca880865ff2d2d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-05.png" alt="">
+        </div>
+        <h4>שפה גופנית-רגשית עדינה ומדויקת</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/a5d4a2_dc15c3d01a24498c95e0a6d721f34ef7~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7-07.png" alt="">
+        </div>
+        <h4>התפתחות אישית</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_2ddca25d0ae9480ab67ee1ca20477077~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-02.png" alt="">
+        </div>
+        <h4>העמקה בפילוסופיה</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_dc9e0e041d404fef920f630ad72f788d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-03.png" alt="">
+        </div>
+        <h4>כלים להוראה אותנטית</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_260a9e6ec0594888a31cb6ccecb44376~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-01.png" alt="">
+        </div>
+        <h4>הנחיה כמרחב ריפוי</h4>
+      </div>
+      <div class="principle-card fade-in">
+        <div class="principle-icon">
+          <img src="https://static.wixstatic.com/media/ca2d1f_0808c05ba3dc468eb5ca880865ff2d2d~mv2.png/v1/fill/w_161,h_164,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v618-tk-20-wellnesslogo-05.png" alt="">
+        </div>
+        <h4>עבודה קבוצתית טרנספורמטיבית</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS IT FOR -->
+<section class="who-for" id="who-for">
+  <div class="container">
+    <div class="who-for-inner">
+      <div class="who-for-text fade-in">
+        <h2 class="section-title">למי זה מתאים?</h2>
+        <p>התוכנית מיועדת למתרגלי יוגה משיטות שונות שרוצים להעמיק את התרגול האישי בכל הרבדים: הגופני, האנרגטי, הנפשי והרוחני ולהנכיח את היוגה בחיים האישיים והמקצועיים.</p>
+        <p>למי שרוצה להנחות מתוך מודעות ואמפתיה, תוך התאמת התרגול לכל אדם.</p>
+        <p>כמו כן, למטפלים בגישות שונות &ndash; פסיכולוגים, עו&quot;ס, פיזיותרפיסטים, פסיכותרפיסטים, מאמנים, מטפלים במגע, מאמני כושר וספורט ועוד &ndash; אשר מתרגלים יוגה ורוצים לעבור תהליך אישי ולרכוש כלי עומק בשפת היוגה.</p>
+        <a href="#" class="team-link">לעקרונות הגישה האינטגרטיבית &laquo;</a>
+      </div>
+      <div class="who-for-img fade-in">
+        <img src="images/1 (211).jpg" alt="ציפי מתקנת תלמידה">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIVE PRINCIPLES -->
+<section class="integrative" id="integrative">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">עקרונות הגישה האינטגרטיבית</h2>
+    </div>
+    <div class="integrative-viewer fade-in" id="integrativeViewer">
+      <div class="integrative-viewer-icon" id="intIcon"></div>
+      <h3 id="intTitle"></h3>
+      <p id="intDesc"></p>
+      <div class="integrative-nav">
+        <button onclick="navigatePrinciple(1)" aria-label="הקודם">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </button>
+        <span class="integrative-counter" id="intCounter"></span>
+        <button onclick="navigatePrinciple(-1)" aria-label="הבא">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+        </button>
+      </div>
+      <div class="integrative-dots" id="intDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">מילים שמגיעות מהלב</h2>
+      <p class="section-subtitle">בוגרות ובוגרי הקורסים מספרים</p>
+    </div>
+    <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>קורס מורי יוגה אינטגרטיבית של ציפי נגב &ndash; קורס משנה חיים. לא פחות. בענווה, באהבה גדולה ובהכלה אינסופית מזמינה ציפי את תלמידיה למסע יוגי טרנספורמטיבי. כל מפגש למידה עם ציפי הוא קרש קפיצה לחיים של נוכחות מלאה והתבוננות פנימה.</p>
+        <div class="testimonial-author">כרמית חיות</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>הקורס שלך פתח לי צוהר לעולם רגשי גדול, עמוק ורחב שקיים בתוכי. אני מרגישה טובה יותר כבת אדם &ndash; פתוחה, מכילה, קשובה ואמפטית יותר לסובבים אותי. זה ממש לא מובן מאליו מבחינתי ואת אור גדול עבורי.</p>
+        <div class="testimonial-author">עדי עזריה</div>
+        <div class="testimonial-title">מורה יוגה ובוגרת יוגה תרפיה אינטגרטיבית</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>הקורס &lsquo;יוגה תרפיה&rsquo; בהנחייתה של ציפי נגב הוא קורס מעצים ומשנה חיים. ללמוד אצל ציפי פירושו ללמוד שפה ייחודית ועוצמתית. שפה רוחנית ונפשית שמדברת ישירות אל הלב, מרגיעה, מנחמת ומטפחת חמלה וקבלה עצמית.</p>
+        <div class="testimonial-author">מירב הגלילי</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>מעבר לחוויה אישית וקבוצתית מעצימה, הקורס פתח בפני אפשרות להתבונן במה היא תרפיה בצורה חדשה. ציפי מלמדת שפה טיפולית ייחודית, פשוטה, בהירה וחכמה. כפסיכולוגית קלינית, הקורס פתח בפני אפשרות חדשה ומרגשת לשלב כלים מעולם היוגה במפגשים הטיפוליים.</p>
+        <div class="testimonial-author">מיכל רומם</div>
+        <div class="testimonial-title">פסיכולוגית קלינית ומורה ליוגה</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>למזלי הגדול הכרתי את ציפי נגב, מעיין נובע של עומק וידע, מורה לחיים ומורה לדרך היוגה. השפה הייחודית של היוגה האינטגרטיבית היא שזירה של תנועה ונשימה, פילוסופיה ופסיכולוגיה. עבורי זוהי הדרך הנכונה לתרגל ולחיות יוגה על ומחוץ למזרן. זכיתי בכל היבט אפשרי!</p>
+        <div class="testimonial-author">ליאת כרמלי</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>הודיה היא המילה הראשונה שעולה בתוכי. לוקחת איתי מרחב עצום של אהבה, ידע, חמלה, חכמת הגוף והנפש שספגתי בשנה הזו. תודה גדולה על היותך, על הדרך שלך, על הדרך שלימדת אותי אל עצמי ועל כל מה שעוד ילבלב בהמשך.</p>
+        <div class="testimonial-author">אסנת שלו</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">&ldquo;</div>
+        <p>האיזון העדין בין המקצועיות לרגישות של ציפי מאפשר לכל תלמיד לעבור את דרכו הייחודית בזמן ובקצב שלו. במיוחד בימים אלו, הכלים המקצועיים הנלמדים בקורס לצד הקהילה הנוצרת סביב הלמידה המשותפת מהווים מקור לכוח וצמיחה.</p>
+        <div class="testimonial-author">אייל דולינסקי</div>
+        <div class="testimonial-title">מלמד כדורגל ומשלב יוגה</div>
+      </div>
+    </div>
+    <div class="testimonials-nav">
+      <button onclick="scrollTestimonials(-1)" aria-label="הקודם">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+      </button>
+      <button onclick="scrollTestimonials(1)" aria-label="הבא">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">שאלות נפוצות</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>איך נראה סדר היום בקורס מורים?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>7:30&ndash;11:30 תרגול תנוחות ונשימות, תרגול דינמי וגם פירוק למרכיבים, תוך כדי הפנמה של הפילוסופיה והאנטומיה.<br>11:30&ndash;12:00 הפסקה<br>12:00&ndash;14:00 פילוסופיה ואנטומיה</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>מהי יוגה אינטגרטיבית?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>יוגה אינטגרטיבית היא גישה המעמידה במרכז את האדם והחקירה של ארגון מיטבי של הגוף תוך כדי מסע של הנפש והרוח לעבר חופש פנימי.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>האם אני צריכה להיות ברמה גבוהה של תרגול?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>יש לתרגל לפחות שנתיים לפני תחילת הלימודים ולהמשיך לתרגל תוך כדי הקורס. הקורס מקבל דרגות כושר שונות ומטפח את היכולת האישית.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>מה לומדים באנטומיה?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>לומדים אנטומיה פונקציונלית: בשנה א׳ מערכות שלד שריר, ובשנה ב׳ מערכות פנימיות כמו המוח ומערכת העצבים, שמעמיקה את התרגול.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>מה לומדים בפילוסופיה?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>הקורס מעוגן בפילוסופיה-פסיכולוגיה של היוגה. נקרא טקסטים מתוך היוגה סוטרה של פטנג׳לי, האתה יוגה פרדיפיקה, בהגוד גיטה, ואופנישד. נלמד על ההיסטוריה והשורשים של היוגה.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>למדתי קורס מורים של 200 שעות, האם אפשר להצטרף לשנה ב׳?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>כן, וגם, חשוב לעשות השלמות כדי להפנים את הגישה והשפה.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>האם יש מטלות בקורס מורים?</span>
+          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>יש עבודות להגשה כל חודש כדי לעבד את החומר דרך חקירה וסיפור אישי. שיתוף העבודות בקבוצה הוא מקור לעוצמה, ללמידה ולאינטימיות. בנוסף יש 20 שעות פרקטיקום הוראה שניתן לעשות כבר במהלך הלימודים.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner fade-in">
+      <h2 class="section-title">השאירו פרטים ונחזור בהקדם</h2>
+      <p class="section-subtitle" style="margin-bottom:24px;">מעניין אותך? נשמח לשוחח</p>
+      <form class="contact-form" onsubmit="return false;">
+        <div class="contact-row">
+          <input type="text" placeholder="שם מלא" required>
+          <input type="tel" placeholder="טלפון" required>
+        </div>
+        <div class="contact-buttons">
+          <button type="submit" class="btn">לשליחה</button>
+          <a href="#" class="btn btn-whatsapp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            שליחה בוואטסאפ
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container fade-in">
+    <h3>מוזמנים באהבה להצטרף לניוזלטר של ציפי</h3>
+    <p>עדכונים, תכנים מעוררי השראה ומידע על קורסים ואירועים</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="text" placeholder="שם">
+      <input type="email" placeholder="אימייל">
+      <input type="tel" placeholder="טלפון">
+      <button type="submit" class="btn">לשליחה</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>ציפי נגב &ndash; יוגה אינטגרטיבית &copy; 2026 | רחוב אלפסי 1, נחלת עדה, הרצליה</p>
+  </div>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
+function closeMenu() {
+  mobileMenu.classList.remove('active');
+}
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Testimonials scroll
+function scrollTestimonials(dir) {
+  const track = document.getElementById('testimonialsTrack');
+  const cardWidth = track.querySelector('.testimonial-card').offsetWidth + 24;
+  track.scrollBy({ left: cardWidth * dir * -1, behavior: 'smooth' });
+}
+
+// Integrative Principles Viewer
+const principles = [
+  {
+    title: 'אשטנגה יוגה',
+    icon: 'icons/yogain (7).png',
+    desc: 'שמונת האיברים של היוגה – יאמה, נייאמה, אסנה, פרנאיאמה, פרטיאהרה, דהרנה, דהיאנה וסמאדהי – מהווים את עמוד השדרה של ההכשרה. הם מציעים מפת דרכים חיה לתרגול שמשלב גוף, נשימה, ריכוז ותודעה, ומלווה את התלמידים בצמיחה אישית ומקצועית לאורך כל הדרך.'
+  },
+  {
+    title: 'אינטגרציה',
+    icon: 'icons/yogain (3).png',
+    desc: 'הגישה האינטגרטיבית שואבת ממסורות יוגה מגוונות, מפסיכולוגיה מערבית ומעולם הסומטיקה. היא מחברת בין ידע עתיק לתובנות עכשוויות, ומאפשרת למורה העתידי לבנות שפה ייחודית שנובעת מתוך חוויה אישית ולא מתבנית אחידה.'
+  },
+  {
+    title: 'פעילות גופנית בשדה רוחני',
+    icon: 'icons/yogain (1).png',
+    desc: 'התרגול הגופני ביוגה אינטגרטיבית אינו רק פיזי – הוא מתקיים בתוך שדה של קשב, כוונה ומשמעות. כל תנועה היא הזדמנות להקשבה פנימית, וכל תרגול הוא מפגש בין הגוף לבין המרחב הרוחני שמזמין אותו לצמוח.'
+  },
+  {
+    title: 'שזירה ופרימה',
+    icon: 'icons/yogain (5).png',
+    desc: 'למידה אינטגרטיבית היא תהליך של שזירה – חיבור שכבות של ידע, חוויה ותובנה – ושל פרימה – פירוק דפוסים ישנים כדי לאפשר צמיחה חדשה. התהליך הזה מזמין גמישות מחשבתית ואומץ להתבונן מחדש.'
+  },
+  {
+    title: 'יוגה כאומנות של מערכות יחסים',
+    icon: 'icons/yogain (9).png',
+    desc: 'יוגה אינטגרטיבית מבינה שהתרגול מתרחש תמיד בתוך מערכת יחסים – עם עצמנו, עם התלמידים ועם המרחב. ההכשרה מפתחת רגישות ליחסים הבין-אישיים בשיעור ומלמדת כיצד לבנות מרחב בטוח שמזמין שינוי.'
+  },
+  {
+    title: 'שפה של הזמנה וחקירה',
+    icon: 'icons/yogain (8).png',
+    desc: 'במקום הנחיות דירקטיביות, אנו מלמדים שפה שמזמינה חקירה עצמית. כל הנחיה נבנית כהזמנה – לחוש, לגלות, להתנסות. כך המורה מעניק לתלמיד אוטונומיה על חוויית התרגול שלו ופותח דלת לגילוי אישי.'
+  },
+  {
+    title: 'קריאת כיוון ותהליך',
+    icon: 'icons/yogain (6).png',
+    desc: 'מורה אינטגרטיבי לומד לקרוא את מה שקורה בחדר – הדינמיקה הקבוצתית, האנרגיה, הצרכים המשתנים – ולהתאים את השיעור בזמן אמת. זוהי יכולת של ניווט רגיש שמתפתחת לאורך ההכשרה דרך תרגול, צפייה והתנסות.'
+  },
+  {
+    title: 'מיטביות ועונג',
+    icon: 'icons/yogain (4).png',
+    desc: 'אנו מאמינים שתרגול יוגה צריך להיות מקור לעונג ולמיטביות – לא רק למאמץ ומשמעת. הגישה שלנו מחפשת את הנקודה שבה המאמץ הופך למשחק, והתרגול הופך לחגיגה של הגוף והנפש.'
+  },
+  {
+    title: 'סופרפוזיציה קיומית',
+    icon: 'icons/yogain (2).png',
+    desc: 'בהשראת פיזיקה קוונטית, אנו מתרגלים להחזיק מספר אמיתות בו-זמנית. במקום "או-או" – "גם-וגם". היכולת להכיל מורכבות, סתירות ומתח בין הפכים היא מיומנות קיומית שמעשירה את ההוראה ואת החיים.'
+  },
+  {
+    title: 'אוטונומיה, ריבונות',
+    icon: 'icons/yogain (9).png',
+    desc: 'מטרת ההכשרה היא לפתח מורים ריבוניים – כאלה שמלמדים מתוך הקול הייחודי שלהם ולא מתוך חיקוי. אנו מטפחים אוטונומיה מקצועית ואישית, ומעודדים כל בוגר למצוא את הדרך שלו ביוגה ובהוראה.'
+  }
+];
+
+let currentPrinciple = 0;
+
+function showPrinciple(index, animate) {
+  const viewer = document.getElementById('integrativeViewer');
+  const update = () => {
+    const p = principles[index];
+    document.getElementById('intIcon').innerHTML = '<img src="' + p.icon + '" alt="' + p.title + '">';
+    document.getElementById('intTitle').textContent = p.title;
+    document.getElementById('intDesc').textContent = p.desc;
+    document.getElementById('intCounter').textContent = (index + 1) + ' / ' + principles.length;
+    document.querySelectorAll('.integrative-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    if (animate) {
+      requestAnimationFrame(() => viewer.classList.remove('switching'));
+    }
+  };
+  if (animate) {
+    viewer.classList.add('switching');
+    setTimeout(update, 250);
+  } else {
+    update();
+  }
+}
+
+function navigatePrinciple(dir) {
+  currentPrinciple = (currentPrinciple - dir + principles.length) % principles.length;
+  showPrinciple(currentPrinciple, true);
+}
+
+// Generate dots
+const dotsContainer = document.getElementById('intDots');
+principles.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.className = 'integrative-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => { currentPrinciple = i; showPrinciple(i, true); });
+  dotsContainer.appendChild(dot);
+});
+
+showPrinciple(0);
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
