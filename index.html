@@ -72,11 +72,36 @@ img { max-width: 100%; height: auto; display: block; }
   border: 2px solid var(--purple);
 }
 .btn-outline:hover { background: var(--purple); color: var(--white); }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.7);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.15); color: var(--white); border-color: var(--white); }
 .btn-whatsapp {
-  background: #25D366;
+  background: #5daa72;
   color: var(--white);
 }
-.btn-whatsapp:hover { background: #1DA851; color: var(--white); }
+.btn-whatsapp:hover { background: #4a9060; color: var(--white); }
+
+/* Link-style buttons (C2: outline, no chevron) */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--purple);
+  border: 1.5px solid var(--purple);
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.link-btn:hover { background: var(--purple); color: var(--white); }
 
 .section-title {
   font-size: clamp(28px, 5vw, 42px);
@@ -84,11 +109,12 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 16px;
   color: var(--dark);
 }
+/* C3: subtitles → dark not blue */
 .section-subtitle {
-  font-size: 20px;
-  color: var(--blue);
+  font-size: 19px;
+  color: var(--dark-light);
   margin-bottom: 40px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* Fade-in animation */
@@ -147,9 +173,15 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a:hover { color: var(--purple); }
-.nav-cta { font-size: 14px !important; padding: 10px 24px !important; color: var(--white) !important; }
+/* P2: nav CTA – white text, no underline */
+.nav-cta {
+  font-size: 14px !important;
+  padding: 10px 24px !important;
+  color: var(--white) !important;
+  text-decoration: none !important;
+}
 .nav-cta::after { display: none !important; }
-.nav-cta:hover { color: var(--white) !important; }
+.nav-cta:hover { color: var(--white) !important; background: var(--purple-hover) !important; }
 
 .hamburger {
   display: none;
@@ -185,19 +217,20 @@ img { max-width: 100%; height: auto; display: block; }
   background-position: center 30%;
   z-index: 0;
 }
+/* C4: darker overlay */
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(45, 42, 51, 0.7) 0%, rgba(123, 94, 167, 0.55) 100%);
+  background: linear-gradient(135deg, rgba(30, 27, 38, 0.82) 0%, rgba(123, 94, 167, 0.65) 100%);
 }
 .hero-content {
   position: relative;
   z-index: 1;
   text-align: center;
   color: var(--white);
-  padding: 80px 24px;
-  max-width: 850px;
+  padding: 80px 24px 60px;
+  max-width: 900px;
   margin: 0 auto;
 }
 .hero-content h1 {
@@ -206,20 +239,47 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.2;
   margin-bottom: 16px;
 }
+/* C7: registration line – larger + bold */
 .hero-content .hero-sub {
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: 300;
-  opacity: 0.9;
-  margin-bottom: 24px;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  opacity: 1;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
 }
+/* C8: description – slightly larger, ~2 prominent lines */
 .hero-content p {
-  font-size: 18px;
-  opacity: 0.85;
-  max-width: 680px;
-  margin: 0 auto 40px;
-  line-height: 1.9;
+  font-size: 20px;
+  opacity: 0.92;
+  max-width: 700px;
+  margin: 0 auto 16px;
+  line-height: 1.8;
+  font-weight: 400;
 }
-.hero .btn { font-size: 20px; padding: 16px 44px; }
+/* C6: recognition badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 32px;
+  backdrop-filter: blur(4px);
+}
+.hero-badge svg { flex-shrink: 0; opacity: 0.8; }
+/* C9: two hero CTA buttons */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.hero .btn { font-size: 18px; padding: 15px 36px; }
 
 .hero-wave {
   position: absolute;
@@ -276,29 +336,31 @@ img { max-width: 100%; height: auto; display: block; }
   right: 0;
 }
 .team-wave-top svg { display: block; width: 100%; }
+/* C17: bring photos closer */
 .team-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 32px;
   margin-top: 48px;
 }
 .team-card {
   text-align: center;
 }
 .team-img-wrap {
-  width: 280px;
-  height: 370px;
-  border-radius: 140px 140px 20px 20px;
+  width: 300px;
+  height: 390px;
+  border-radius: 150px 150px 20px 20px;
   overflow: hidden;
   margin: 0 auto 24px;
   box-shadow: var(--shadow-lg);
   border: 4px solid var(--beige);
 }
+/* P4: object-position top center */
 .team-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top left;
+  object-position: top center;
 }
 .team-card h3 {
   font-size: 26px;
@@ -308,7 +370,7 @@ img { max-width: 100%; height: auto; display: block; }
 .team-card .team-role {
   color: var(--purple);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 16px;
 }
 .team-card p {
@@ -318,16 +380,12 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 420px;
   margin: 0 auto;
 }
-.team-card .team-link {
-  display: inline-block;
-  margin-top: 16px;
-  font-weight: 500;
-  font-size: 16px;
-}
+/* C1: no italic on team text */
+.team-card p em, .team-card p i { font-style: normal; }
 .team-synergy {
   margin-top: 60px;
   text-align: center;
-  font-size: 20px;
+  font-size: 19px;
   color: var(--dark-light);
   max-width: 800px;
   margin-left: auto;
@@ -354,8 +412,9 @@ img { max-width: 100%; height: auto; display: block; }
   list-style: none;
   margin-top: 24px;
 }
+/* C19: less spacing between bullets */
 .uniqueness-text li {
-  padding: 12px 0;
+  padding: 7px 0;
   padding-right: 32px;
   position: relative;
   font-size: 17px;
@@ -364,13 +423,15 @@ img { max-width: 100%; height: auto; display: block; }
   content: '';
   position: absolute;
   right: 0;
-  top: 20px;
-  width: 12px;
-  height: 12px;
+  top: 16px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background: var(--purple);
   opacity: 0.7;
 }
+/* C18: uniqueness subtitle → dark */
+.uniqueness .section-subtitle { color: var(--dark-light); }
 .uniqueness-img {
   border-radius: 120px 120px 20px 20px;
   overflow: hidden;
@@ -423,7 +484,7 @@ img { max-width: 100%; height: auto; display: block; }
 .open-day {
   background: var(--peach);
   color: var(--dark);
-  padding: 80px 0;
+  padding: 60px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -431,29 +492,33 @@ img { max-width: 100%; height: auto; display: block; }
 .open-day::before {
   content: '';
   position: absolute;
-  top: -80px;
-  left: -80px;
-  width: 300px;
-  height: 300px;
+  top: -80px; left: -80px;
+  width: 300px; height: 300px;
   border-radius: 50%;
   background: rgba(123,94,167,0.04);
 }
 .open-day::after {
   content: '';
   position: absolute;
-  bottom: -60px;
-  right: -60px;
-  width: 250px;
-  height: 250px;
+  bottom: -60px; right: -60px;
+  width: 250px; height: 250px;
   border-radius: 50%;
   background: rgba(123,94,167,0.03);
 }
 .open-day .section-title { color: var(--dark); }
-.open-day p {
-  max-width: 700px;
-  margin: 0 auto 32px;
+/* C12: one block, same color/size, less padding */
+.open-day-meta {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.open-day-body {
+  max-width: 680px;
+  margin: 0 auto 28px;
   color: var(--dark-light);
   line-height: 1.9;
+  font-size: 17px;
 }
 .open-day .btn {
   background: var(--purple);
@@ -467,16 +532,23 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--white);
   padding: 100px 0;
 }
+.course-intro {
+  max-width: 800px;
+  margin: 0 auto 48px;
+  text-align: center;
+  font-size: 17px;
+  color: var(--dark-light);
+  line-height: 1.9;
+}
 .principles-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  margin-top: 48px;
 }
 .principle-card {
-  background: var(--white);
+  background: var(--purple);
   border-radius: var(--radius);
-  padding: 32px 24px;
+  padding: 32px 20px;
   text-align: center;
   box-shadow: var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -485,6 +557,7 @@ img { max-width: 100%; height: auto; display: block; }
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
+/* C21: white icon on purple background */
 .principle-icon {
   width: 120px;
   height: 120px;
@@ -492,12 +565,46 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: brightness(0) invert(1);
 }
 .principle-icon img { width: 120px; height: 120px; object-fit: contain; }
 .principle-card h4 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.6;
+  color: var(--white);
+}
+
+/* ===== PHOTO CAROUSEL (C22) ===== */
+.photo-carousel {
+  background: var(--beige);
+  padding: 80px 0;
+  overflow: hidden;
+}
+.photo-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 16px 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.photo-track::-webkit-scrollbar { display: none; }
+.photo-item {
+  flex-shrink: 0;
+  width: 280px;
+  height: 360px;
+  border-radius: 140px 140px 20px 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  scroll-snap-align: start;
+}
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* ===== WHO IS IT FOR ===== */
@@ -511,7 +618,17 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 60px;
   align-items: center;
 }
-.who-for-text p { margin-bottom: 24px; color: var(--dark-light); }
+/* C23: tighter text, no extra spacing */
+.who-for-text p { margin-bottom: 16px; color: var(--dark-light); }
+/* C24: bold invitation line */
+.who-for-invitation {
+  font-weight: 700;
+  color: var(--dark);
+  font-size: 17px;
+  margin-top: 20px;
+  border-right: 3px solid var(--purple);
+  padding-right: 16px;
+}
 .who-for-img {
   border-radius: 120px 120px 20px 20px;
   overflow: hidden;
@@ -614,7 +731,7 @@ img { max-width: 100%; height: auto; display: block; }
   transform: scale(1.2);
 }
 
-/* ===== TESTIMONIALS ===== */
+/* ===== TESTIMONIALS (C25-C28) ===== */
 .testimonials {
   background: var(--white);
   padding: 100px 0;
@@ -633,59 +750,81 @@ img { max-width: 100%; height: auto; display: block; }
 .testimonials-track::-webkit-scrollbar { display: none; }
 .testimonial-card {
   flex-shrink: 0;
-  width: 400px;
+  width: min(88vw, 560px);
   background: var(--beige);
   border-radius: var(--radius);
-  padding: 40px 32px;
+  padding: 32px 32px 28px;
   scroll-snap-align: start;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .testimonial-quote {
   font-size: 64px;
   color: var(--purple);
-  opacity: 0.2;
+  opacity: 0.18;
   line-height: 1;
   position: absolute;
   top: 16px;
   right: 24px;
   font-family: serif;
 }
-.testimonial-card p {
+.testimonial-body {
   font-size: 16px;
   color: var(--dark-light);
   line-height: 1.9;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  flex: 1;
 }
-.testimonial-author {
-  font-weight: 700;
-  color: var(--dark);
-  font-size: 17px;
-}
-.testimonial-title {
-  font-size: 14px;
-  color: var(--purple);
-  font-weight: 400;
-}
-.testimonials-nav {
+/* C25-C26: photo + name at same height */
+.testimonial-footer {
   display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 32px;
+  align-items: center;
+  gap: 14px;
 }
-.testimonials-nav button {
-  width: 44px;
-  height: 44px;
+.testimonial-avatar {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: 2px solid var(--purple);
-  background: var(--white);
-  color: var(--purple);
-  cursor: pointer;
+  background: var(--purple-soft);
+  flex-shrink: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
 }
-.testimonials-nav button:hover { background: var(--purple); color: var(--white); }
+.testimonial-avatar svg { color: var(--purple); opacity: 0.5; }
+.testimonial-author {
+  font-weight: 700;
+  color: var(--dark);
+  font-size: 16px;
+}
+.testimonial-title {
+  font-size: 13px;
+  color: var(--purple);
+  font-weight: 400;
+}
+/* C28: dots instead of arrow nav */
+.testimonials-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.testimonials-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--beige);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+.testimonials-dot.active {
+  background: var(--purple);
+  transform: scale(1.25);
+}
 
 /* ===== FAQ ===== */
 .faq {
@@ -748,29 +887,28 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.9;
 }
 
-/* ===== CONTACT ===== */
+/* ===== CONTACT (C29-C33) ===== */
 .contact {
   background: var(--beige);
   padding: 80px 0;
 }
 .contact-inner {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
   text-align: center;
 }
+/* C31: single-row form */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   margin-top: 32px;
 }
-.contact-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+.contact-row-single {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
 }
-.contact-form input {
-  padding: 16px 20px;
+.contact-row-single input {
+  flex: 1;
+  padding: 15px 20px;
   border: 2px solid var(--beige);
   border-radius: var(--radius-sm);
   font-size: 16px;
@@ -778,18 +916,142 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--white);
   transition: border-color 0.3s;
   text-align: right;
+  min-width: 0;
 }
-.contact-form input:focus {
+.contact-row-single input:focus {
   outline: none;
   border-color: var(--purple);
 }
-.contact-form input::placeholder { color: #B0A8BB; }
-.contact-buttons {
+.contact-row-single input::placeholder { color: #B0A8BB; }
+.contact-row-single .btn {
+  padding: 15px 28px;
+  font-size: 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.contact-whatsapp {
   display: flex;
-  gap: 12px;
+  align-items: center;
   justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--dark-light);
+  font-size: 15px;
+}
+.contact-whatsapp a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4a9060;
+  font-weight: 600;
+}
+.contact-whatsapp a:hover { color: #3a7050; }
+
+/* ===== SYLLABUS MODAL (C34-C38) ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 42, 51, 0.7);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dark-light);
+  font-size: 24px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: var(--beige); }
+.modal-box h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+.modal-box p {
+  font-size: 16px;
+  color: var(--dark-light);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal-form input {
+  padding: 15px 20px;
+  border: 2px solid var(--beige);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: inherit;
+  text-align: right;
+  transition: border-color 0.3s;
+}
+.modal-form input:focus { outline: none; border-color: var(--purple); }
+.modal-form input::placeholder { color: #B0A8BB; }
+.modal-form .btn { width: 100%; justify-content: center; }
+.modal-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.modal-success.active { display: flex; }
+.modal-success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--purple-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-success-icon svg { color: var(--purple); }
+.modal-success h4 { font-size: 22px; font-weight: 700; }
+.modal-success p { color: var(--dark-light); font-size: 16px; }
+.modal-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
   margin-top: 8px;
 }
+.modal-download:hover { background: var(--purple-hover); color: var(--white); }
 
 /* ===== NEWSLETTER ===== */
 .newsletter {
@@ -860,14 +1122,20 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  .hero-content { padding: 60px 20px; }
-  .hero-content h1 { font-size: 36px; }
+  /* C5: Mobile hero – shift bg to show only Tzipi (right side) */
+  .hero-bg {
+    background-position: 80% 25%;
+  }
+  .hero-content { padding: 60px 20px 50px; }
+  .hero-content h1 { font-size: 34px; }
+  .hero-content p { font-size: 17px; }
+  .hero-btns { flex-direction: column; align-items: center; }
 
   .stats-grid { grid-template-columns: 1fr; gap: 16px; }
   .stat-card { padding: 24px; }
   .stat-number { font-size: 32px; }
 
-  .team-grid { grid-template-columns: 1fr; gap: 48px; }
+  .team-grid { grid-template-columns: 1fr; gap: 40px; }
   .team-img-wrap { width: 220px; height: 290px; border-radius: 110px 110px 16px 16px; }
 
   .uniqueness-inner { grid-template-columns: 1fr; }
@@ -877,25 +1145,59 @@ img { max-width: 100%; height: auto; display: block; }
   .details-card { padding: 32px 24px; }
   .details-grid { grid-template-columns: 1fr; }
 
-  .principles-grid { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .photo-item { width: 220px; height: 280px; border-radius: 110px 110px 16px 16px; }
 
   .who-for-inner { grid-template-columns: 1fr; }
   .who-for-img { order: -1; }
   .who-for-img img { height: 280px; }
 
-  .testimonial-card { width: 320px; padding: 32px 24px; }
+  .testimonial-card { width: min(90vw, 400px); }
 
-  .contact-row { grid-template-columns: 1fr; }
-  .contact-buttons { flex-direction: column; align-items: stretch; }
+  .contact-row-single { flex-direction: column; }
+  .contact-row-single .btn { width: 100%; justify-content: center; }
 
   .newsletter-form { flex-direction: column; }
   .newsletter-form input { min-width: auto; }
 
   .section-title { font-size: 28px; }
+
+  .modal-box { padding: 36px 24px; }
 }
 </style>
 </head>
 <body>
+
+<!-- SYLLABUS MODAL (C34-C38) -->
+<div class="modal-overlay" id="syllabusModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="סגור">&#x2715;</button>
+    <div id="modalForm">
+      <div style="width:60px;height:60px;background:var(--purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7B5EA7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+      </div>
+      <h3>קבלו את הסילבוס המלא</h3>
+      <p>השאירו שם וטלפון ונשלח לכם את תכנית הלימודים המפורטת ישירות</p>
+      <form class="modal-form" onsubmit="submitSyllabus(event)">
+        <input type="text" placeholder="שם מלא" required id="modalName">
+        <input type="tel" placeholder="טלפון" required id="modalPhone">
+        <button type="submit" class="btn">שלחו לי את הסילבוס</button>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+      </div>
+      <h4>תודה!</h4>
+      <p>הפרטים התקבלו. ניצור קשר בקרוב.<br>בינתיים אפשר להוריד את הסילבוס כאן:</p>
+      <a href="#syllabus-pdf" class="modal-download" id="syllabusLink" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+        הורדת הסילבוס (PDF)
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -908,7 +1210,7 @@ img { max-width: 100%; height: auto; display: block; }
       <li><a href="#uniqueness">ייחודיות הקורס</a></li>
       <li><a href="#content">תכני ההכשרה</a></li>
       <li><a href="#faq">שאלות נפוצות</a></li>
-      <li><a href="#contact" class="btn nav-cta">הרשמה ליום פתוח</a></li>
+      <li><a href="#open-day" class="btn nav-cta">הרשמה למפגש היכרות</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
       <span></span><span></span><span></span>
@@ -922,7 +1224,7 @@ img { max-width: 100%; height: auto; display: block; }
   <a href="#uniqueness" onclick="closeMenu()">ייחודיות הקורס</a>
   <a href="#content" onclick="closeMenu()">תכני ההכשרה</a>
   <a href="#faq" onclick="closeMenu()">שאלות נפוצות</a>
-  <a href="#contact" class="btn" onclick="closeMenu()">הרשמה ליום פתוח</a>
+  <a href="#open-day" class="btn" onclick="closeMenu()">הרשמה למפגש היכרות</a>
 </div>
 
 <!-- HERO -->
@@ -930,9 +1232,20 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="hero-bg"></div>
   <div class="hero-content">
     <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
-    <div class="hero-sub">ימים פתוחים לקורס תשפ״ז &mdash; נובמבר 2026</div>
-    <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
-    <a href="#contact" class="btn">הרשמו עכשיו ליום הפתוח</a>
+    <!-- C7: larger + bold -->
+    <div class="hero-sub">החלה הרשמה למחזור תשפ״ז &mdash; נובמבר 2026</div>
+    <!-- C8: full description, 2 lines -->
+    <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.<br>הידע התיאורטי והמעשי נשזר למארג אינטגרטיבי של תנועה, נשימה, פילוסופיה ופסיכולוגיה מתוך הפנמה גופנית.</p>
+    <!-- C6: recognition badge -->
+    <div class="hero-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+      מוכר ע״י ארגון מורי היוגה הישראלי
+    </div>
+    <!-- C9: two CTAs + syllabus -->
+    <div class="hero-btns">
+      <a href="#open-day" class="btn">הרשמה למפגש היכרות</a>
+      <button class="btn btn-ghost" onclick="openModal()">הורדת הסילבוס</button>
+    </div>
   </div>
   <div class="hero-wave">
     <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -966,7 +1279,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="container">
     <div class="fade-in" style="text-align:center;">
       <h2 class="section-title">צוות ההוראה</h2>
-      <p class="section-subtitle">מורות בדרך, מלוות במסע</p>
+      <!-- C14: removed subtitle "מורות בדרך, מלוות במסע" -->
     </div>
     <div class="team-grid">
       <div class="team-card fade-in">
@@ -974,10 +1287,14 @@ img { max-width: 100%; height: auto; display: block; }
           <img src="images/1 (66).jpg" alt="ציפי נגב">
         </div>
         <h3>ציפי נגב</h3>
-        <div class="team-role">מורה ליוגה אינטגרטיבית ומכשירת מורים</div>
+        <!-- C16: updated title -->
+        <div class="team-role">מנהלת בית הספר ליוגה אינטגרטיבית</div>
+        <!-- C1: no italic -->
         <p>ציפי נגב עוסקת ביוגה קרוב לחמישים שנה. היא חוקרת את הקשר בין התרגול הגופני לבין הפילוסופיה והפסיכולוגיה של היוגה, ומכשירה מורים ומלווי תהליכי ריפוי ביוגה כתרפיה. שירתה כיו״ר ארגון מורי היוגה בישראל ופועלת לקידום היוגה בחינוך.</p>
-        <p style="margin-top:12px; font-style:italic; font-size:15px; color:var(--purple);">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
-        <a href="#" class="team-link">אודות ציפי &laquo;</a>
+        <!-- C15: added volunteer line -->
+        <p style="margin-top:10px; font-size:15px; color:var(--dark-light);">ומתנדבת בעמותת ״לב אל לב״ בה הקימה רשת תמיכה של מורות ליוגה-תרפיה.</p>
+        <p style="margin-top:8px; font-size:15px; color:var(--purple); font-weight:500;">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
+        <a href="#" class="link-btn">אודות ציפי</a>
       </div>
       <div class="team-card fade-in">
         <div class="team-img-wrap">
@@ -986,8 +1303,8 @@ img { max-width: 100%; height: auto; display: block; }
         <h3>טל וקסמן</h3>
         <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
         <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה ויוגה אינטגרטיבית. ליוותה את ציפי כאסיסטנטית במשך שני מחזורי קורס מלאים. סגנון ההוראה שלה משלב תשומת לב, רכות, זרימה, סקרנות ויצירתיות.</p>
-        <p style="margin-top:12px; font-size:15px; color:var(--dark-light);">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
-        <a href="#" class="team-link">אודות טל &laquo;</a>
+        <p style="margin-top:10px; font-size:15px; color:var(--dark-light);">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
+        <a href="#" class="link-btn">אודות טל</a>
       </div>
     </div>
     <div class="team-synergy fade-in">
@@ -1002,7 +1319,9 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="uniqueness-inner">
       <div class="uniqueness-text fade-in">
         <h2 class="section-title">ייחודיות הקורס</h2>
-        <p class="text-blue">תכנית הלימודים מציעה שילוב נדיר בין עומק תיאורטי לתרגול חווייתי, ומתמקדת בפיתוח המורה הפנימי של כל משתתף.</p>
+        <!-- C18: subtitle now dark via CSS -->
+        <p class="section-subtitle">תכנית הלימודים מציעה שילוב נדיר בין עומק תיאורטי לתרגול חווייתי, ומתמקדת בפיתוח המורה הפנימי של כל משתתף.</p>
+        <!-- C19: less spacing via CSS -->
         <ul>
           <li>מרחב קבוצתי מובנה כתהליך התפתחותי</li>
           <li>הקבוצה משמשת מראה להשתקפויות, קהילה ומשענת</li>
@@ -1070,12 +1389,16 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- OPEN DAY -->
+<!-- C10-C13: updated date, unified text block, new button label -->
 <section class="open-day" id="open-day">
   <div class="container fade-in">
     <h2 class="section-title">מפגש ההכרות</h2>
-    <p>מפגש ההכרות יאפשר לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות.</p>
-    <p style="opacity:0.75; font-size:16px;">הצטרפות למפגש ההכרות בהרשמה מראש ואינה כרוכה בתשלום.</p>
-    <a href="#contact" class="btn">שריינו לי מקום למפגש היכרות</a>
+    <div class="open-day-meta">יום שישי, 12.5.2026 | 12:00&ndash;14:00 | אלפסי 1, נחלת עדה, הרצליה</div>
+    <div class="open-day-body">
+      מפגש ההכרות יאפשר לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות. המפגש ללא עלות אך דורש הרשמה מראש.
+    </div>
+    <!-- C13: button label -->
+    <a href="#contact" class="btn">להרשמה למפגש</a>
   </div>
 </section>
 
@@ -1084,58 +1407,61 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="container">
     <div class="fade-in" style="text-align:center;">
       <h2 class="section-title">תכני ההכשרה</h2>
-      <p class="section-subtitle">הכשרת מורים ומורות להוראה מעמיקה, רגישה ומקיפה של יוגה אינטגרטיבית</p>
     </div>
+    <!-- C20: intro paragraph -->
+    <p class="course-intro fade-in">הכשרת מורים ומורות להוראה מעמיקה, רגישה ומקיפה של יוגה אינטגרטיבית. הבנה רחבה של הגוף, הנפש והתודעה, ויכולת ליישם את עקרונות היוגה בהוראה לאוכלוסיות מגוונות ובמרחבי חיים שונים. אסנות, פראניאמה, מדיטציה והגות, לצד עבודה קבוצתית, תהליכי רפלקציה, ולמידה אישית וקבוצתית.</p>
+    <!-- C21: purple background, white icons via CSS filter -->
     <div class="principles-grid">
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (1).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (1).png" alt=""></div>
         <h4>תרגול יוגה מבוסס תודעה</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (2).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (2).png" alt=""></div>
         <h4>עוגני בטיחות ועקרונות ליבה באימון</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (3).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (3).png" alt=""></div>
         <h4>שפה גופנית-רגשית עדינה ומדויקת</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (4).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (4).png" alt=""></div>
         <h4>התפתחות אישית</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (5).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (5).png" alt=""></div>
         <h4>העמקה בפילוסופיה</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (6).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (6).png" alt=""></div>
         <h4>כלים להוראה אותנטית</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (7).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (7).png" alt=""></div>
         <h4>הנחיה כמרחב ריפוי</h4>
       </div>
       <div class="principle-card fade-in">
-        <div class="principle-icon">
-          <img src="icons/yogain (8).png" alt="">
-        </div>
+        <div class="principle-icon"><img src="icons/yogain (8).png" alt=""></div>
         <h4>עבודה קבוצתית טרנספורמטיבית</h4>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PHOTO CAROUSEL (C22) -->
+<section class="photo-carousel" id="gallery">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom:16px;">
+      <h2 class="section-title">רגעים מהקורס</h2>
+    </div>
+  </div>
+  <div class="photo-track">
+    <div class="photo-item"><img src="images/1 (9).jpg" alt="יוגה אינטגרטיבית"></div>
+    <div class="photo-item"><img src="images/1 (19).jpg" alt="תרגול קבוצתי"></div>
+    <div class="photo-item"><img src="images/1 (97).jpg" alt="מפגש קורס"></div>
+    <div class="photo-item"><img src="images/1 (211).jpg" alt="תרגול יחידני"></div>
+    <div class="photo-item"><img src="images/1 (314).jpg" alt="הוראת יוגה"></div>
+    <div class="photo-item"><img src="images/1 (66).jpg" alt="ציפי נגב"></div>
   </div>
 </section>
 
@@ -1145,10 +1471,13 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="who-for-inner">
       <div class="who-for-text fade-in">
         <h2 class="section-title">למי זה מתאים?</h2>
+        <!-- C23: no extra spacing -->
         <p>התוכנית מיועדת למתרגלי יוגה משיטות שונות שרוצים להעמיק את התרגול האישי בכל הרבדים: הגופני, האנרגטי, הנפשי והרוחני ולהנכיח את היוגה בחיים האישיים והמקצועיים.</p>
         <p>למי שרוצה להנחות מתוך מודעות ואמפתיה, תוך התאמת התרגול לכל אדם.</p>
         <p>כמו כן, למטפלים בגישות שונות &ndash; פסיכולוגים, עו&quot;ס, פיזיותרפיסטים, פסיכותרפיסטים, מאמנים, מטפלים במגע, מאמני כושר וספורט ועוד &ndash; אשר מתרגלים יוגה ורוצים לעבור תהליך אישי ולרכוש כלי עומק בשפת היוגה.</p>
-        <a href="#" class="team-link">לעקרונות הגישה האינטגרטיבית &laquo;</a>
+        <!-- C24: bold invitation in bold, separate -->
+        <p class="who-for-invitation">ההזמנה פתוחה גם למי שאינו מעוניין להיות מורה ליוגה, אך מבקש להעמיק את הידע.</p>
+        <a href="#integrative" class="link-btn">לעקרונות הגישה האינטגרטיבית</a>
       </div>
       <div class="who-for-img fade-in">
         <img src="images/1 (211).jpg" alt="ציפי מתקנת תלמידה">
@@ -1168,11 +1497,12 @@ img { max-width: 100%; height: auto; display: block; }
       <h3 id="intTitle"></h3>
       <p id="intDesc"></p>
       <div class="integrative-nav">
-        <button onclick="navigatePrinciple(1)" aria-label="הקודם">
+        <!-- P3: flipped direction — right arrow = prev, left arrow = next -->
+        <button onclick="navigatePrinciple(-1)" aria-label="הקודם">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
         </button>
         <span class="integrative-counter" id="intCounter"></span>
-        <button onclick="navigatePrinciple(-1)" aria-label="הבא">
+        <button onclick="navigatePrinciple(1)" aria-label="הבא">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
         </button>
       </div>
@@ -1181,7 +1511,7 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS (C25-C28) -->
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="fade-in" style="text-align:center;">
@@ -1191,51 +1521,63 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="testimonials-track" id="testimonialsTrack">
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>קורס מורי יוגה אינטגרטיבית של ציפי נגב &ndash; קורס משנה חיים. לא פחות. בענווה, באהבה גדולה ובהכלה אינסופית מזמינה ציפי את תלמידיה למסע יוגי טרנספורמטיבי. כל מפגש למידה עם ציפי הוא קרש קפיצה לחיים של נוכחות מלאה והתבוננות פנימה.</p>
-        <div class="testimonial-author">כרמית חיות</div>
+        <div class="testimonial-body">קורס מורי יוגה אינטגרטיבית של ציפי נגב &ndash; קורס משנה חיים. לא פחות. בענווה, באהבה גדולה ובהכלה אינסופית מזמינה ציפי את תלמידיה למסע יוגי טרנספורמטיבי. כל מפגש למידה עם ציפי הוא קרש קפיצה לחיים של נוכחות מלאה והתבוננות פנימה.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">כרמית חיות</div></div>
+        </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>הקורס שלך פתח לי צוהר לעולם רגשי גדול, עמוק ורחב שקיים בתוכי. אני מרגישה טובה יותר כבת אדם &ndash; פתוחה, מכילה, קשובה ואמפטית יותר לסובבים אותי. זה ממש לא מובן מאליו מבחינתי ואת אור גדול עבורי.</p>
-        <div class="testimonial-author">עדי עזריה</div>
-        <div class="testimonial-title">מורה יוגה ובוגרת יוגה תרפיה אינטגרטיבית</div>
+        <div class="testimonial-body">הקורס שלך פתח לי צוהר לעולם רגשי גדול, עמוק ורחב שקיים בתוכי. אני מרגישה טובה יותר כבת אדם &ndash; פתוחה, מכילה, קשובה ואמפטית יותר לסובבים אותי. זה ממש לא מובן מאליו מבחינתי ואת אור גדול עבורי.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">עדי עזריה</div><div class="testimonial-title">מורה יוגה ובוגרת יוגה תרפיה אינטגרטיבית</div></div>
+        </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>הקורס &lsquo;יוגה תרפיה&rsquo; בהנחייתה של ציפי נגב הוא קורס מעצים ומשנה חיים. ללמוד אצל ציפי פירושו ללמוד שפה ייחודית ועוצמתית. שפה רוחנית ונפשית שמדברת ישירות אל הלב, מרגיעה, מנחמת ומטפחת חמלה וקבלה עצמית.</p>
-        <div class="testimonial-author">מירב הגלילי</div>
+        <div class="testimonial-body">הקורס ׳יוגה תרפיה׳ בהנחייתה של ציפי נגב הוא קורס מעצים ומשנה חיים. ללמוד אצל ציפי פירושו ללמוד שפה ייחודית ועוצמתית. שפה רוחנית ונפשית שמדברת ישירות אל הלב, מרגיעה, מנחמת ומטפחת חמלה וקבלה עצמית.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">מירב הגלילי</div></div>
+        </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>מעבר לחוויה אישית וקבוצתית מעצימה, הקורס פתח בפני אפשרות להתבונן במה היא תרפיה בצורה חדשה. ציפי מלמדת שפה טיפולית ייחודית, פשוטה, בהירה וחכמה. כפסיכולוגית קלינית, הקורס פתח בפני אפשרות חדשה ומרגשת לשלב כלים מעולם היוגה במפגשים הטיפוליים.</p>
-        <div class="testimonial-author">מיכל רומם</div>
-        <div class="testimonial-title">פסיכולוגית קלינית ומורה ליוגה</div>
+        <div class="testimonial-body">מעבר לחוויה אישית וקבוצתית מעצימה, הקורס פתח בפני אפשרות להתבונן במה היא תרפיה בצורה חדשה. ציפי מלמדת שפה טיפולית ייחודית, פשוטה, בהירה וחכמה. כפסיכולוגית קלינית, הקורס פתח בפני אפשרות חדשה ומרגשת לשלב כלים מעולם היוגה במפגשים הטיפוליים.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">מיכל רומם</div><div class="testimonial-title">פסיכולוגית קלינית ומורה ליוגה</div></div>
+        </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>למזלי הגדול הכרתי את ציפי נגב, מעיין נובע של עומק וידע, מורה לחיים ומורה לדרך היוגה. השפה הייחודית של היוגה האינטגרטיבית היא שזירה של תנועה ונשימה, פילוסופיה ופסיכולוגיה. עבורי זוהי הדרך הנכונה לתרגל ולחיות יוגה על ומחוץ למזרן. זכיתי בכל היבט אפשרי!</p>
-        <div class="testimonial-author">ליאת כרמלי</div>
+        <div class="testimonial-body">למזלי הגדול הכרתי את ציפי נגב, מעיין נובע של עומק וידע, מורה לחיים ומורה לדרך היוגה. השפה הייחודית של היוגה האינטגרטיבית היא שזירה של תנועה ונשימה, פילוסופיה ופסיכולוגיה. עבורי זוהי הדרך הנכונה לתרגל ולחיות יוגה על ומחוץ למזרן.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">ליאת כרמלי</div></div>
+        </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>הודיה היא המילה הראשונה שעולה בתוכי. לוקחת איתי מרחב עצום של אהבה, ידע, חמלה, חכמת הגוף והנפש שספגתי בשנה הזו. תודה גדולה על היותך, על הדרך שלך, על הדרך שלימדת אותי אל עצמי ועל כל מה שעוד ילבלב בהמשך.</p>
-        <div class="testimonial-author">אסנת שלו</div>
+        <div class="testimonial-body">הודיה היא המילה הראשונה שעולה בתוכי. לוקחת איתי מרחב עצום של אהבה, ידע, חמלה, חכמת הגוף והנפש שספגתי בשנה הזו. תודה גדולה על היותך, על הדרך שלך, על הדרך שלימדת אותי אל עצמי.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">אסנת שלו</div></div>
+        </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <p>האיזון העדין בין המקצועיות לרגישות של ציפי מאפשר לכל תלמיד לעבור את דרכו הייחודית בזמן ובקצב שלו. במיוחד בימים אלו, הכלים המקצועיים הנלמדים בקורס לצד הקהילה הנוצרת סביב הלמידה המשותפת מהווים מקור לכוח וצמיחה.</p>
-        <div class="testimonial-author">אייל דולינסקי</div>
-        <div class="testimonial-title">מלמד כדורגל ומשלב יוגה</div>
+        <div class="testimonial-body">האיזון העדין בין המקצועיות לרגישות של ציפי מאפשר לכל תלמיד לעבור את דרכו הייחודית בזמן ובקצב שלו. הכלים המקצועיים הנלמדים בקורס לצד הקהילה הנוצרת סביב הלמידה המשותפת מהווים מקור לכוח וצמיחה.</div>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div><div class="testimonial-author">אייל דולינסקי</div><div class="testimonial-title">מלמד כדורגל ומשלב יוגה</div></div>
+        </div>
       </div>
     </div>
-    <div class="testimonials-nav">
-      <button onclick="scrollTestimonials(-1)" aria-label="הקודם">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-      </button>
-      <button onclick="scrollTestimonials(1)" aria-label="הבא">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
-      </button>
-    </div>
+    <!-- C28: dots navigation -->
+    <div class="testimonials-dots" id="testimonialsDots"></div>
   </div>
 </section>
 
@@ -1313,25 +1655,30 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT (C29-C33) -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner fade-in">
-      <h2 class="section-title">השאירו פרטים ונחזור בהקדם</h2>
-      <p class="section-subtitle" style="margin-bottom:24px;">מעניין אותך? נשמח לשוחח</p>
+      <!-- C29: new heading -->
+      <h2 class="section-title">רוצים לדעת עוד?</h2>
+      <!-- C30: new subheading -->
+      <p class="section-subtitle" style="margin-bottom:8px;">השאירו פרטים ונחזור אליכם בהקדם</p>
+      <!-- C31: single-row form -->
       <form class="contact-form" onsubmit="return false;">
-        <div class="contact-row">
+        <div class="contact-row-single">
           <input type="text" placeholder="שם מלא" required>
           <input type="tel" placeholder="טלפון" required>
-        </div>
-        <div class="contact-buttons">
-          <button type="submit" class="btn">לשליחה</button>
-          <a href="#" class="btn btn-whatsapp">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            שליחה בוואטסאפ
-          </a>
+          <button type="submit" class="btn">שליחה</button>
         </div>
       </form>
+      <!-- C32-C33: WhatsApp with muted green -->
+      <div class="contact-whatsapp">
+        <span>או צרו קשר ישירות:</span>
+        <a href="https://wa.me/972500000000" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          וואטסאפ
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1384,15 +1731,47 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// Testimonials scroll
-function scrollTestimonials(dir) {
-  const track = document.getElementById('testimonialsTrack');
-  const cardWidth = track.querySelector('.testimonial-card').offsetWidth + 24;
-  track.scrollBy({ left: cardWidth * dir * -1, behavior: 'smooth' });
+// Testimonials dots (C28)
+const testimonialsTrack = document.getElementById('testimonialsTrack');
+const testimonialCards = testimonialsTrack.querySelectorAll('.testimonial-card');
+const dotsContainerT = document.getElementById('testimonialsDots');
+testimonialCards.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
+  dot.setAttribute('aria-label', 'עדות ' + (i + 1));
+  dot.addEventListener('click', () => {
+    const cardWidth = testimonialCards[0].offsetWidth + 24;
+    testimonialsTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+  });
+  dotsContainerT.appendChild(dot);
+});
+testimonialsTrack.addEventListener('scroll', () => {
+  const cardWidth = testimonialCards[0].offsetWidth + 24;
+  const idx = Math.round(testimonialsTrack.scrollLeft / cardWidth);
+  dotsContainerT.querySelectorAll('.testimonials-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === idx);
+  });
+});
+
+// Syllabus Modal
+function openModal() {
+  document.getElementById('syllabusModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
+function closeModal() {
+  document.getElementById('syllabusModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function submitSyllabus(e) {
+  e.preventDefault();
+  document.getElementById('modalForm').style.display = 'none';
+  document.getElementById('modalSuccess').classList.add('active');
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
 
 // Integrative Principles Viewer
-// SVG icon helper – generates wellness-style line icons in purple
 function svgIcon(paths, vb = '0 0 64 64') {
   return "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + vb + '" fill="none" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + paths + '</svg>');
 }
@@ -1463,9 +1842,7 @@ function showPrinciple(index, animate) {
     document.querySelectorAll('.integrative-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
-    if (animate) {
-      requestAnimationFrame(() => viewer.classList.remove('switching'));
-    }
+    if (animate) requestAnimationFrame(() => viewer.classList.remove('switching'));
   };
   if (animate) {
     viewer.classList.add('switching');
@@ -1475,28 +1852,25 @@ function showPrinciple(index, animate) {
   }
 }
 
+// P3: direction corrected — right button = navigatePrinciple(-1) goes prev, left = next
 function navigatePrinciple(dir) {
-  currentPrinciple = (currentPrinciple - dir + principles.length) % principles.length;
+  currentPrinciple = (currentPrinciple + dir + principles.length) % principles.length;
   showPrinciple(currentPrinciple, true);
 }
 
-// Generate dots
-const dotsContainer = document.getElementById('intDots');
+const intDotsContainer = document.getElementById('intDots');
 principles.forEach((_, i) => {
   const dot = document.createElement('span');
   dot.className = 'integrative-dot' + (i === 0 ? ' active' : '');
   dot.addEventListener('click', () => { currentPrinciple = i; showPrinciple(i, true); });
-  dotsContainer.appendChild(dot);
+  intDotsContainer.appendChild(dot);
 });
-
 showPrinciple(0);
 
 // Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
