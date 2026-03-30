@@ -34,9 +34,9 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Heebo', sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--dark);
+  font-size: 19px;
+  line-height: 1.65;
+  color: #4C4C4E;
   background: var(--cream);
   overflow-x: hidden;
 }
@@ -217,12 +217,11 @@ img { max-width: 100%; height: auto; display: block; }
   background-position: center 30%;
   z-index: 0;
 }
-/* C4: darker overlay */
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30, 27, 38, 0.82) 0%, rgba(123, 94, 167, 0.65) 100%);
+  background: linear-gradient(135deg, rgba(45, 42, 51, 0.7) 0%, rgba(123, 94, 167, 0.55) 100%);
 }
 .hero-content {
   position: relative;
@@ -279,7 +278,7 @@ img { max-width: 100%; height: auto; display: block; }
   flex-wrap: wrap;
   margin-top: 32px;
 }
-.hero .btn { font-size: 18px; padding: 15px 36px; }
+.hero .btn { font-size: 20px; padding: 16px 44px; }
 
 .hero-wave {
   position: absolute;
@@ -326,7 +325,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== TEAM ===== */
 .team {
   background: var(--white);
-  padding: 100px 0;
+  padding: 70px 0;
   position: relative;
 }
 .team-wave-top {
@@ -347,9 +346,9 @@ img { max-width: 100%; height: auto; display: block; }
   text-align: center;
 }
 .team-img-wrap {
-  width: 300px;
-  height: 390px;
-  border-radius: 150px 150px 20px 20px;
+  width: 340px;
+  height: 440px;
+  border-radius: 170px 170px 20px 20px;
   overflow: hidden;
   margin: 0 auto 24px;
   box-shadow: var(--shadow-lg);
@@ -399,7 +398,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== UNIQUENESS ===== */
 .uniqueness {
   background: var(--beige);
-  padding: 100px 0;
+  padding: 70px 0;
   position: relative;
 }
 .uniqueness-inner {
@@ -446,7 +445,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== DETAILS ===== */
 .details {
   background: var(--cream);
-  padding: 100px 0;
+  padding: 70px 0;
 }
 .details-card {
   background: var(--white);
@@ -530,7 +529,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== COURSE CONTENT ===== */
 .course-content {
   background: var(--white);
-  padding: 100px 0;
+  padding: 70px 0;
 }
 .course-intro {
   max-width: 800px;
@@ -548,7 +547,7 @@ img { max-width: 100%; height: auto; display: block; }
 .principle-card {
   background: var(--purple);
   border-radius: var(--radius);
-  padding: 32px 20px;
+  padding: 32px 24px;
   text-align: center;
   box-shadow: var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -557,19 +556,19 @@ img { max-width: 100%; height: auto; display: block; }
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
-/* C21: white icon on purple background */
 .principle-icon {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 16px;
+  background: var(--purple);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: brightness(0) invert(1);
 }
-.principle-icon img { width: 120px; height: 120px; object-fit: contain; }
+.principle-icon img { width: 70px; height: 70px; object-fit: contain; filter: brightness(0) invert(1); }
 .principle-card h4 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.6;
   color: var(--white);
@@ -578,24 +577,51 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== PHOTO CAROUSEL (C22) ===== */
 .photo-carousel {
   background: var(--beige);
-  padding: 80px 0;
+  padding: 70px 0;
   overflow: hidden;
+}
+.photo-carousel-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
 }
 .photo-track {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   overflow-x: auto;
-  padding: 16px 24px;
+  padding: 16px 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 .photo-track::-webkit-scrollbar { display: none; }
+.photo-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--beige);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s;
+  color: var(--dark-light);
+}
+.photo-nav:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
+.photo-nav.prev { right: 4px; }
+.photo-nav.next { left: 4px; }
 .photo-item {
   flex-shrink: 0;
   width: 280px;
-  height: 360px;
-  border-radius: 140px 140px 20px 20px;
+  height: 340px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   scroll-snap-align: start;
@@ -610,7 +636,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== WHO IS IT FOR ===== */
 .who-for {
   background: var(--cream);
-  padding: 100px 0;
+  padding: 70px 0;
 }
 .who-for-inner {
   display: grid;
@@ -639,102 +665,78 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== INTEGRATIVE PRINCIPLES ===== */
 .integrative {
   background: var(--beige);
-  padding: 80px 0;
+  padding: 70px 0;
 }
 .integrative-viewer {
-  max-width: 700px;
+  max-width: 720px;
   margin: 40px auto 0;
   background: var(--white);
   border-radius: 25px;
-  padding: 48px 40px;
+  padding: 48px 60px;
   box-shadow: var(--shadow-lg);
-  text-align: center;
+  text-align: right;
   position: relative;
 }
 .integrative-viewer-icon {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 20px;
-  transition: opacity 0.3s ease;
+  display: none;
 }
 .integrative-viewer h3,
 .integrative-viewer p {
   transition: opacity 0.3s ease;
 }
-.integrative-viewer.switching .integrative-viewer-icon,
 .integrative-viewer.switching h3,
 .integrative-viewer.switching p {
   opacity: 0;
 }
-.integrative-viewer-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 .integrative-viewer h3 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--purple);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .integrative-viewer p {
-  font-size: 16px;
-  color: var(--dark-light);
-  line-height: 1.9;
-  min-height: 120px;
+  font-size: 17px;
+  color: #4C4C4E;
+  line-height: 1.75;
+  min-height: 100px;
 }
 .integrative-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 24px;
   margin-top: 32px;
 }
 .integrative-nav button {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid var(--purple);
-  background: var(--white);
-  color: var(--purple);
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  color: var(--dark-light);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
+  transition: color 0.3s;
   flex-shrink: 0;
+  opacity: 0.5;
 }
-.integrative-nav button:hover { background: var(--purple); color: var(--white); }
+.integrative-nav button:hover { color: var(--purple); opacity: 1; }
 .integrative-counter {
   font-size: 15px;
   color: var(--dark-light);
   min-width: 60px;
+  text-align: center;
 }
 .integrative-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-.integrative-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--beige);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  padding: 0;
-}
-.integrative-dot.active {
-  background: var(--purple);
-  transform: scale(1.2);
+  display: none;
 }
 
 /* ===== TESTIMONIALS (C25-C28) ===== */
 .testimonials {
   background: var(--white);
-  padding: 100px 0;
+  padding: 70px 0;
   position: relative;
   overflow: hidden;
 }
@@ -804,12 +806,32 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--purple);
   font-weight: 400;
 }
-/* C28: dots instead of arrow nav */
+.testimonials-nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+.testimonials-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--beige);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-light);
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.testimonials-arrow:hover { background: var(--purple); color: var(--white); border-color: var(--purple); }
 .testimonials-dots {
   display: flex;
-  justify-content: center;
   gap: 8px;
-  margin-top: 28px;
 }
 .testimonials-dot {
   width: 10px;
@@ -829,7 +851,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== FAQ ===== */
 .faq {
   background: var(--cream);
-  padding: 100px 0;
+  padding: 70px 0;
 }
 .faq-list {
   max-width: 800px;
@@ -1147,7 +1169,9 @@ img { max-width: 100%; height: auto; display: block; }
 
   .principles-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .photo-item { width: 220px; height: 280px; border-radius: 110px 110px 16px 16px; }
+  .photo-item { width: 220px; height: 280px; border-radius: var(--radius-sm); }
+  .photo-nav { display: none; }
+  .photo-carousel-wrap { padding: 0 16px; }
 
   .who-for-inner { grid-template-columns: 1fr; }
   .who-for-img { order: -1; }
@@ -1210,7 +1234,7 @@ img { max-width: 100%; height: auto; display: block; }
       <li><a href="#uniqueness">ייחודיות הקורס</a></li>
       <li><a href="#content">תכני ההכשרה</a></li>
       <li><a href="#faq">שאלות נפוצות</a></li>
-      <li><a href="#open-day" class="btn nav-cta">הרשמה למפגש היכרות</a></li>
+      <li><a href="#open-day" class="btn nav-cta">הרשמה ליום פתוח</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
       <span></span><span></span><span></span>
@@ -1224,7 +1248,7 @@ img { max-width: 100%; height: auto; display: block; }
   <a href="#uniqueness" onclick="closeMenu()">ייחודיות הקורס</a>
   <a href="#content" onclick="closeMenu()">תכני ההכשרה</a>
   <a href="#faq" onclick="closeMenu()">שאלות נפוצות</a>
-  <a href="#open-day" class="btn" onclick="closeMenu()">הרשמה למפגש היכרות</a>
+  <a href="#open-day" class="btn" onclick="closeMenu()">הרשמה ליום פתוח</a>
 </div>
 
 <!-- HERO -->
@@ -1234,8 +1258,7 @@ img { max-width: 100%; height: auto; display: block; }
     <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
     <!-- C7: larger + bold -->
     <div class="hero-sub">החלה הרשמה למחזור תשפ״ז &mdash; נובמבר 2026</div>
-    <!-- C8: full description, 2 lines -->
-    <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.<br>הידע התיאורטי והמעשי נשזר למארג אינטגרטיבי של תנועה, נשימה, פילוסופיה ופסיכולוגיה מתוך הפנמה גופנית.</p>
+    <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
     <!-- C6: recognition badge -->
     <div class="hero-badge">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
@@ -1243,7 +1266,7 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
     <!-- C9: two CTAs + syllabus -->
     <div class="hero-btns">
-      <a href="#open-day" class="btn">הרשמה למפגש היכרות</a>
+      <a href="#open-day" class="btn">הרשמו עכשיו ליום הפתוח</a>
       <button class="btn btn-ghost" onclick="openModal()">הורדת הסילבוס</button>
     </div>
   </div>
@@ -1291,9 +1314,8 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="team-role">מנהלת בית הספר ליוגה אינטגרטיבית</div>
         <!-- C1: no italic -->
         <p>ציפי נגב עוסקת ביוגה קרוב לחמישים שנה. היא חוקרת את הקשר בין התרגול הגופני לבין הפילוסופיה והפסיכולוגיה של היוגה, ומכשירה מורים ומלווי תהליכי ריפוי ביוגה כתרפיה. שירתה כיו״ר ארגון מורי היוגה בישראל ופועלת לקידום היוגה בחינוך.</p>
-        <!-- C15: added volunteer line -->
-        <p style="margin-top:10px; font-size:15px; color:var(--dark-light);">ומתנדבת בעמותת ״לב אל לב״ בה הקימה רשת תמיכה של מורות ליוגה-תרפיה.</p>
-        <p style="margin-top:8px; font-size:15px; color:var(--purple); font-weight:500;">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
+        <p style="margin-top:10px;">ומתנדבת בעמותת ״לב אל לב״ בה הקימה רשת תמיכה של מורות ליוגה-תרפיה.</p>
+        <p style="margin-top:8px; color:var(--purple); font-weight:500;">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
         <a href="#" class="link-btn">אודות ציפי</a>
       </div>
       <div class="team-card fade-in">
@@ -1303,12 +1325,12 @@ img { max-width: 100%; height: auto; display: block; }
         <h3>טל וקסמן</h3>
         <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
         <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה ויוגה אינטגרטיבית. ליוותה את ציפי כאסיסטנטית במשך שני מחזורי קורס מלאים. סגנון ההוראה שלה משלב תשומת לב, רכות, זרימה, סקרנות ויצירתיות.</p>
-        <p style="margin-top:10px; font-size:15px; color:var(--dark-light);">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
+        <p style="margin-top:10px;">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
         <a href="#" class="link-btn">אודות טל</a>
       </div>
     </div>
     <div class="team-synergy fade-in">
-      המפגש בין ציפי לטל מייצר מרחב למידה עדין, מכיל ומאפשר, המנגיש את מפות היוגה המסורתית כדי לסייע לנו בתקופה הנוכחית המאתגרת כל כך. דווקא בתקופה זו, היוגה היא מתנה והזדמנות נפלאה למסע תמיכה בעצמנו.
+      המפגש בין ציפי לטל מייצר מרחב למידה עדין, מכיל ומאפשר, המנגיש את מפות היוגה המסורתית כדי לסייע לנו בתקופה הנוכחית המאתגרת כל כך. <strong style="color:var(--dark);">דווקא בתקופה זו, היוגה היא מתנה והזדמנות נפלאה למסע תמיכה בעצמנו.</strong>
     </div>
   </div>
 </section>
@@ -1328,7 +1350,7 @@ img { max-width: 100%; height: auto; display: block; }
           <li>500 שעות לימוד אקדמיות לאורך שנתיים</li>
           <li>מוכר על ידי ארגון מורי היוגה בישראל</li>
           <li>הסמכה בינלאומית &ndash; ניתן ללמד בארץ ובעולם</li>
-          <li>גישה אינטגרטיבית ייחודית שתועדה ונחקרה באקדמיה</li>
+          <li><a href="#integrative" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">גישה אינטגרטיבית ייחודית</a> שתועדה ונחקרה באקדמיה</li>
         </ul>
       </div>
       <div class="uniqueness-img fade-in">
@@ -1389,16 +1411,22 @@ img { max-width: 100%; height: auto; display: block; }
 </section>
 
 <!-- OPEN DAY -->
-<!-- C10-C13: updated date, unified text block, new button label -->
 <section class="open-day" id="open-day">
   <div class="container fade-in">
-    <h2 class="section-title">מפגש ההכרות</h2>
+    <h2 class="section-title">מפגשי היכרות</h2>
     <div class="open-day-meta">יום שישי, 12.5.2026 | 12:00&ndash;14:00 | אלפסי 1, נחלת עדה, הרצליה</div>
     <div class="open-day-body">
-      מפגש ההכרות יאפשר לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות. המפגש ללא עלות אך דורש הרשמה מראש.
+      מפגשי ההיכרות יאפשרו לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות. המפגש ללא עלות אך דורש הרשמה מראש.
     </div>
-    <!-- C13: button label -->
-    <a href="#contact" class="btn">להרשמה למפגש</a>
+    <p style="max-width:680px; margin:0 auto 24px; color:var(--dark-light); font-size:16px;">רוצים לדעת עוד? השאירו פרטים לקבלת הסיליבוס המלא והרשמה ליום פתוח.</p>
+    <button class="btn" onclick="openModal()">להרשמה למפגש</button>
+    <p style="font-size:13px; color:var(--dark-light); opacity:0.7; margin-top:12px;">אנו מכבדים את הפרטיות שלך</p>
+    <div style="margin-top:20px;">
+      <a href="https://wa.me/972500000000" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        שלחו לנו וואטסאפ
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1445,6 +1473,9 @@ img { max-width: 100%; height: auto; display: block; }
         <h4>עבודה קבוצתית טרנספורמטיבית</h4>
       </div>
     </div>
+    <div style="text-align:center; margin-top:40px;">
+      <button class="btn btn-outline" onclick="openModal()">לקבלת הסילבוס המלא</button>
+    </div>
   </div>
 </section>
 
@@ -1455,13 +1486,21 @@ img { max-width: 100%; height: auto; display: block; }
       <h2 class="section-title">רגעים מהקורס</h2>
     </div>
   </div>
-  <div class="photo-track">
-    <div class="photo-item"><img src="images/1 (9).jpg" alt="יוגה אינטגרטיבית"></div>
-    <div class="photo-item"><img src="images/1 (19).jpg" alt="תרגול קבוצתי"></div>
-    <div class="photo-item"><img src="images/1 (97).jpg" alt="מפגש קורס"></div>
-    <div class="photo-item"><img src="images/1 (211).jpg" alt="תרגול יחידני"></div>
-    <div class="photo-item"><img src="images/1 (314).jpg" alt="הוראת יוגה"></div>
-    <div class="photo-item"><img src="images/1 (66).jpg" alt="ציפי נגב"></div>
+  <div class="photo-carousel-wrap">
+    <button class="photo-nav prev" onclick="scrollPhotos(1)" aria-label="הקודם">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+    </button>
+    <div class="photo-track" id="photoTrack">
+      <div class="photo-item"><img src="images/1 (9).jpg" alt="יוגה אינטגרטיבית"></div>
+      <div class="photo-item"><img src="images/1 (19).jpg" alt="תרגול קבוצתי"></div>
+      <div class="photo-item"><img src="images/1 (97).jpg" alt="מפגש קורס"></div>
+      <div class="photo-item"><img src="images/1 (211).jpg" alt="תרגול יחידני"></div>
+      <div class="photo-item"><img src="images/1 (314).jpg" alt="הוראת יוגה"></div>
+      <div class="photo-item"><img src="images/1 (66).jpg" alt="ציפי נגב"></div>
+    </div>
+    <button class="photo-nav next" onclick="scrollPhotos(-1)" aria-label="הבא">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+    </button>
   </div>
 </section>
 
@@ -1576,8 +1615,15 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </div>
     </div>
-    <!-- C28: dots navigation -->
-    <div class="testimonials-dots" id="testimonialsDots"></div>
+    <div class="testimonials-nav-wrap">
+      <button class="testimonials-arrow" id="testimonialsNext" aria-label="הבא">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </button>
+      <div class="testimonials-dots" id="testimonialsDots"></div>
+      <button class="testimonials-arrow" id="testimonialsPrev" aria-label="הקודם">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -1659,11 +1705,8 @@ img { max-width: 100%; height: auto; display: block; }
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner fade-in">
-      <!-- C29: new heading -->
       <h2 class="section-title">רוצים לדעת עוד?</h2>
-      <!-- C30: new subheading -->
-      <p class="section-subtitle" style="margin-bottom:8px;">השאירו פרטים ונחזור אליכם בהקדם</p>
-      <!-- C31: single-row form -->
+      <p class="section-subtitle" style="margin-bottom:8px;">השאירו פרטים לקבלת הסיליבוס המלא והרשמה ליום פתוח</p>
       <form class="contact-form" onsubmit="return false;">
         <div class="contact-row-single">
           <input type="text" placeholder="שם מלא" required>
@@ -1671,12 +1714,11 @@ img { max-width: 100%; height: auto; display: block; }
           <button type="submit" class="btn">שליחה</button>
         </div>
       </form>
-      <!-- C32-C33: WhatsApp with muted green -->
-      <div class="contact-whatsapp">
-        <span>או צרו קשר ישירות:</span>
-        <a href="https://wa.me/972500000000" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          וואטסאפ
+      <p style="font-size:13px; color:var(--dark-light); opacity:0.7; margin-top:10px;">אנו מכבדים את הפרטיות שלך</p>
+      <div style="margin-top:20px;">
+        <a href="https://wa.me/972500000000" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          שלחו לנו וואטסאפ
         </a>
       </div>
     </div>
@@ -1731,7 +1773,14 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// Testimonials dots (C28)
+// Photo carousel navigation
+function scrollPhotos(dir) {
+  const track = document.getElementById('photoTrack');
+  const itemWidth = track.querySelector('.photo-item').offsetWidth + 16;
+  track.scrollBy({ left: dir * itemWidth * 2, behavior: 'smooth' });
+}
+
+// Testimonials dots + arrows
 const testimonialsTrack = document.getElementById('testimonialsTrack');
 const testimonialCards = testimonialsTrack.querySelectorAll('.testimonial-card');
 const dotsContainerT = document.getElementById('testimonialsDots');
@@ -1751,6 +1800,14 @@ testimonialsTrack.addEventListener('scroll', () => {
   dotsContainerT.querySelectorAll('.testimonials-dot').forEach((d, i) => {
     d.classList.toggle('active', i === idx);
   });
+});
+document.getElementById('testimonialsNext').addEventListener('click', () => {
+  const cardWidth = testimonialCards[0].offsetWidth + 24;
+  testimonialsTrack.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+});
+document.getElementById('testimonialsPrev').addEventListener('click', () => {
+  const cardWidth = testimonialCards[0].offsetWidth + 24;
+  testimonialsTrack.scrollBy({ left: cardWidth, behavior: 'smooth' });
 });
 
 // Syllabus Modal
