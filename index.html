@@ -202,96 +202,70 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== HERO ===== */
 .hero {
-  position: relative;
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+  overflow: hidden;
+}
+.hero-img-col {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+.hero-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.hero-text-col {
+  background: var(--cream);
   display: flex;
   align-items: center;
-  overflow: hidden;
-  padding-top: 72px;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('images/1 (339).jpg');
-  background-size: cover;
-  background-position: center 30%;
-  z-index: 0;
-}
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(45, 42, 51, 0.7) 0%, rgba(123, 94, 167, 0.55) 100%);
+  justify-content: flex-end;
+  padding: 80px 64px 60px 40px;
 }
 .hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: var(--white);
-  padding: 80px 24px 60px;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  text-align: right;
 }
 .hero-content h1 {
-  font-size: clamp(36px, 7vw, 64px);
+  font-size: clamp(30px, 4vw, 54px);
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 16px;
-}
-/* C7: registration line – larger + bold */
-.hero-content .hero-sub {
-  font-size: clamp(20px, 3vw, 26px);
-  font-weight: 700;
-  opacity: 1;
   margin-bottom: 20px;
-  letter-spacing: 0.01em;
+  color: var(--dark);
 }
-/* C8: description – slightly larger, ~2 prominent lines */
 .hero-content p {
-  font-size: 20px;
-  opacity: 0.92;
-  max-width: 700px;
-  margin: 0 auto 16px;
-  line-height: 1.8;
+  font-size: 18px;
+  color: var(--dark-light);
+  max-width: 460px;
+  margin: 0 0 28px;
+  line-height: 1.85;
   font-weight: 400;
 }
-/* C6: recognition badge */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.35);
+  gap: 10px;
+  background: var(--purple-light);
+  border: 1px solid rgba(123, 94, 167, 0.2);
   border-radius: 50px;
-  padding: 8px 20px;
+  padding: 8px 18px 8px 14px;
   font-size: 14px;
-  color: rgba(255,255,255,0.9);
+  color: var(--purple);
   margin-bottom: 32px;
-  backdrop-filter: blur(4px);
+  font-weight: 500;
 }
-.hero-badge svg { flex-shrink: 0; opacity: 0.8; }
-/* C9: two hero CTA buttons */
+.hero-badge img { height: 30px; width: auto; flex-shrink: 0; }
 .hero-btns {
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-top: 32px;
 }
-.hero .btn { font-size: 20px; padding: 16px 44px; }
-
-.hero-wave {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  z-index: 2;
-}
-.hero-wave svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+.hero .btn { font-size: 17px; padding: 14px 36px; }
 
 /* ===== STATS ===== */
 .stats {
@@ -389,10 +363,11 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  background: var(--peach);
+  background: var(--purple-light);
   padding: 32px 40px;
   border-radius: var(--radius);
   line-height: 1.9;
+  border: 1px solid rgba(123,94,167,0.12);
 }
 
 /* ===== UNIQUENESS ===== */
@@ -505,12 +480,15 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(123,94,167,0.03);
 }
 .open-day .section-title { color: var(--dark); }
-/* C12: one block, same color/size, less padding */
 .open-day-meta {
   font-size: 17px;
   font-weight: 600;
   color: var(--dark);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
 }
 .open-day-body {
   max-width: 680px;
@@ -576,7 +554,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== PHOTO CAROUSEL (C22) ===== */
 .photo-carousel {
-  background: var(--beige);
+  background: var(--cream);
   padding: 70px 0;
   overflow: hidden;
 }
@@ -753,13 +731,14 @@ img { max-width: 100%; height: auto; display: block; }
 .testimonial-card {
   flex-shrink: 0;
   width: min(88vw, 560px);
-  background: var(--beige);
+  background: var(--white);
   border-radius: var(--radius);
   padding: 32px 32px 28px;
   scroll-snap-align: start;
   position: relative;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow);
 }
 .testimonial-quote {
   font-size: 64px;
@@ -785,17 +764,15 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 14px;
 }
 .testimonial-avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--purple-soft);
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.testimonial-avatar svg { color: var(--purple); opacity: 0.5; }
+.testimonial-avatar img { width: 44px; height: auto; }
 .testimonial-author {
   font-weight: 700;
   color: var(--dark);
@@ -915,7 +892,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 80px 0;
 }
 .contact-inner {
-  max-width: 640px;
+  max-width: 860px;
   margin: 0 auto;
   text-align: center;
 }
@@ -1144,14 +1121,26 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  /* C5: Mobile hero – shift bg to show only Tzipi (right side) */
-  .hero-bg {
-    background-position: 80% 25%;
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
-  .hero-content { padding: 60px 20px 50px; }
-  .hero-content h1 { font-size: 34px; }
-  .hero-content p { font-size: 17px; }
-  .hero-btns { flex-direction: column; align-items: center; }
+  .hero-img-col {
+    min-height: 260px;
+    order: -1;
+  }
+  .hero-img-col img {
+    object-position: left top;
+  }
+  .hero-text-col {
+    padding: 40px 24px 48px;
+    justify-content: flex-start;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-content h1 { font-size: 32px; }
+  .hero-content p { font-size: 16px; }
+  .hero-btns { flex-direction: column; }
+  .hero .btn { width: 100%; justify-content: center; }
 
   .stats-grid { grid-template-columns: 1fr; gap: 16px; }
   .stat-card { padding: 24px; }
@@ -1181,9 +1170,6 @@ img { max-width: 100%; height: auto; display: block; }
 
   .contact-row-single { flex-direction: column; }
   .contact-row-single .btn { width: 100%; justify-content: center; }
-
-  .newsletter-form { flex-direction: column; }
-  .newsletter-form input { min-width: auto; }
 
   .section-title { font-size: 28px; }
 
@@ -1253,49 +1239,25 @@ img { max-width: 100%; height: auto; display: block; }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
-    <!-- C7: larger + bold -->
-    <div class="hero-sub">החלה הרשמה למחזור תשפ״ז &mdash; נובמבר 2026</div>
-    <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
-    <!-- C6: recognition badge -->
-    <div class="hero-badge">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
-      מוכר ע״י ארגון מורי היוגה הישראלי
-    </div>
-    <!-- C9: two CTAs + syllabus -->
-    <div class="hero-btns">
-      <a href="#open-day" class="btn">הרשמו עכשיו ליום הפתוח</a>
-      <button class="btn btn-ghost" onclick="openModal()">הורדת הסילבוס</button>
-    </div>
+  <div class="hero-img-col">
+    <img src="images/1 (339).jpg" alt="הכשרת מורים ליוגה אינטגרטיבית">
   </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,80 C360,120 720,40 1440,80 L1440,120 L0,120 Z" fill="#fffef6"/>
-    </svg>
+  <div class="hero-text-col">
+    <div class="hero-content">
+      <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
+      <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
+      <div class="hero-badge">
+        <img src="yoga teachers.png" alt="ארגון מורי היוגה הישראלי">
+        מוכר ע״י ארגון מורי היוגה בישראל
+      </div>
+      <div class="hero-btns">
+        <a href="#open-day" class="btn">להרשמה למפגש היכרות</a>
+        <button class="btn btn-outline" onclick="openModal()">להורדת הסיליבוס</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats" id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card fade-in">
-        <div class="stat-number">500</div>
-        <div class="stat-label">שעות לימוד אקדמיות</div>
-      </div>
-      <div class="stat-card fade-in">
-        <div class="stat-number">שנתיים</div>
-        <div class="stat-label">תהליך מתמשך ומעמיק</div>
-      </div>
-      <div class="stat-card fade-in">
-        <div class="stat-number">בינלאומית</div>
-        <div class="stat-label">הסמכה מוכרת בארץ ובעולם</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- TEAM -->
 <section class="team" id="team">
@@ -1312,25 +1274,23 @@ img { max-width: 100%; height: auto; display: block; }
         <h3>ציפי נגב</h3>
         <!-- C16: updated title -->
         <div class="team-role">מנהלת בית הספר ליוגה אינטגרטיבית</div>
-        <!-- C1: no italic -->
-        <p>ציפי נגב עוסקת ביוגה קרוב לחמישים שנה. היא חוקרת את הקשר בין התרגול הגופני לבין הפילוסופיה והפסיכולוגיה של היוגה, ומכשירה מורים ומלווי תהליכי ריפוי ביוגה כתרפיה. שירתה כיו״ר ארגון מורי היוגה בישראל ופועלת לקידום היוגה בחינוך.</p>
-        <p style="margin-top:10px;">ומתנדבת בעמותת ״לב אל לב״ בה הקימה רשת תמיכה של מורות ליוגה-תרפיה.</p>
-        <p style="margin-top:8px; color:var(--purple); font-weight:500;">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
+        <p>ציפי נגב עוסקת ביוגה קרוב לחמישים שנה. היא חוקרת את הקשר בין התרגול הגופני לבין הפילוסופיה והפסיכולוגיה של היוגה, ומכשירה מורים ומלווי תהליכי ריפוי ביוגה כתרפיה. שירתה כיו״ר ארגון מורי היוגה בישראל ופועלת לקידום היוגה בחינוך ומתנדבת בעמותת ״לב אל לב״ בה הקימה רשת תמיכה של מורות ליוגה-תרפיה.</p>
+        <p style="margin-top:10px; color:var(--purple); font-weight:500;">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
         <a href="#" class="link-btn">אודות ציפי</a>
       </div>
       <div class="team-card fade-in">
         <div class="team-img-wrap">
-          <img src="images/1 (16).jpg" alt="טל וקסמן">
+          <img src="images/1 (16).jpg" alt="טל וקסמן" style="object-position: center 20%;">
         </div>
         <h3>טל וקסמן</h3>
         <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
-        <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה ויוגה אינטגרטיבית. ליוותה את ציפי כאסיסטנטית במשך שני מחזורי קורס מלאים. סגנון ההוראה שלה משלב תשומת לב, רכות, זרימה, סקרנות ויצירתיות.</p>
+        <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה ויוגה אינטגרטיבית. ליוותה את ציפי כאסיסטנטית בכירה בקורסי מורים. משלבת תשומת לב, רכות, זרימה, סקרנות ויצירתיות.</p>
         <p style="margin-top:10px;">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
         <a href="#" class="link-btn">אודות טל</a>
       </div>
     </div>
     <div class="team-synergy fade-in">
-      המפגש בין ציפי לטל מייצר מרחב למידה עדין, מכיל ומאפשר, המנגיש את מפות היוגה המסורתית כדי לסייע לנו בתקופה הנוכחית המאתגרת כל כך. <strong style="color:var(--dark);">דווקא בתקופה זו, היוגה היא מתנה והזדמנות נפלאה למסע תמיכה בעצמנו.</strong>
+      היוגה האינטגרטיבית היא מתנה והזדמנות לטיפוח חוסן וצמיחה. הקורס מהווה מרחב למידה של חקירה וקבלה, תוך כדי תרגול קשוב המאפשר הפנמה גופנית של מפות היוגה המסורתיות, ככח מסייע להתנהלות מיטיבה באתגרי החיים.
     </div>
   </div>
 </section>
@@ -1414,15 +1374,17 @@ img { max-width: 100%; height: auto; display: block; }
 <section class="open-day" id="open-day">
   <div class="container fade-in">
     <h2 class="section-title">מפגשי היכרות</h2>
-    <div class="open-day-meta">יום שישי, 12.5.2026 | 12:00&ndash;14:00 | אלפסי 1, נחלת עדה, הרצליה</div>
-    <div class="open-day-body">
-      מפגשי ההיכרות יאפשרו לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות. המפגש ללא עלות אך דורש הרשמה מראש.
+    <div class="open-day-meta">
+      <div>יום שישי | 15.5.2026 | 12:00&ndash;14:00 | הרצליה</div>
+      <div>יום שישי | 10.7.2026 | 12:00&ndash;14:00 | הרצליה</div>
+      <div>יום שישי | 9.10.2026 | 12:00&ndash;14:00 | הרצליה</div>
     </div>
-    <p style="max-width:680px; margin:0 auto 24px; color:var(--dark-light); font-size:16px;">רוצים לדעת עוד? השאירו פרטים לקבלת הסיליבוס המלא והרשמה ליום פתוח.</p>
-    <button class="btn" onclick="openModal()">להרשמה למפגש</button>
-    <p style="font-size:13px; color:var(--dark-light); opacity:0.7; margin-top:12px;">אנו מכבדים את הפרטיות שלך</p>
+    <div class="open-day-body">
+      מפגש ההיכרות יאפשר לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות.<br>המפגש ללא עלות אך דורש הרשמה מראש.
+    </div>
+    <button class="btn" onclick="openModal()">להרשמה למפגש היכרות</button>
     <div style="margin-top:20px;">
-      <a href="https://wa.me/972500000000" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
+      <a href="https://wa.me/972515518867" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         שלחו לנו וואטסאפ
       </a>
@@ -1562,7 +1524,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">קורס מורי יוגה אינטגרטיבית של ציפי נגב &ndash; קורס משנה חיים. לא פחות. בענווה, באהבה גדולה ובהכלה אינסופית מזמינה ציפי את תלמידיה למסע יוגי טרנספורמטיבי. כל מפגש למידה עם ציפי הוא קרש קפיצה לחיים של נוכחות מלאה והתבוננות פנימה.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">כרמית חיות</div></div>
         </div>
       </div>
@@ -1570,7 +1532,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">הקורס שלך פתח לי צוהר לעולם רגשי גדול, עמוק ורחב שקיים בתוכי. אני מרגישה טובה יותר כבת אדם &ndash; פתוחה, מכילה, קשובה ואמפטית יותר לסובבים אותי. זה ממש לא מובן מאליו מבחינתי ואת אור גדול עבורי.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">עדי עזריה</div><div class="testimonial-title">מורה יוגה ובוגרת יוגה תרפיה אינטגרטיבית</div></div>
         </div>
       </div>
@@ -1578,7 +1540,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">הקורס ׳יוגה תרפיה׳ בהנחייתה של ציפי נגב הוא קורס מעצים ומשנה חיים. ללמוד אצל ציפי פירושו ללמוד שפה ייחודית ועוצמתית. שפה רוחנית ונפשית שמדברת ישירות אל הלב, מרגיעה, מנחמת ומטפחת חמלה וקבלה עצמית.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">מירב הגלילי</div></div>
         </div>
       </div>
@@ -1586,7 +1548,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">מעבר לחוויה אישית וקבוצתית מעצימה, הקורס פתח בפני אפשרות להתבונן במה היא תרפיה בצורה חדשה. ציפי מלמדת שפה טיפולית ייחודית, פשוטה, בהירה וחכמה. כפסיכולוגית קלינית, הקורס פתח בפני אפשרות חדשה ומרגשת לשלב כלים מעולם היוגה במפגשים הטיפוליים.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">מיכל רומם</div><div class="testimonial-title">פסיכולוגית קלינית ומורה ליוגה</div></div>
         </div>
       </div>
@@ -1594,7 +1556,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">למזלי הגדול הכרתי את ציפי נגב, מעיין נובע של עומק וידע, מורה לחיים ומורה לדרך היוגה. השפה הייחודית של היוגה האינטגרטיבית היא שזירה של תנועה ונשימה, פילוסופיה ופסיכולוגיה. עבורי זוהי הדרך הנכונה לתרגל ולחיות יוגה על ומחוץ למזרן.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">ליאת כרמלי</div></div>
         </div>
       </div>
@@ -1602,7 +1564,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">הודיה היא המילה הראשונה שעולה בתוכי. לוקחת איתי מרחב עצום של אהבה, ידע, חמלה, חכמת הגוף והנפש שספגתי בשנה הזו. תודה גדולה על היותך, על הדרך שלך, על הדרך שלימדת אותי אל עצמי.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">אסנת שלו</div></div>
         </div>
       </div>
@@ -1610,7 +1572,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="testimonial-quote">&ldquo;</div>
         <div class="testimonial-body">האיזון העדין בין המקצועיות לרגישות של ציפי מאפשר לכל תלמיד לעבור את דרכו הייחודית בזמן ובקצב שלו. הכלים המקצועיים הנלמדים בקורס לצד הקהילה הנוצרת סביב הלמידה המשותפת מהווים מקור לכוח וצמיחה.</div>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg></div>
+          <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">אייל דולינסקי</div><div class="testimonial-title">מלמד כדורגל ומשלב יוגה</div></div>
         </div>
       </div>
@@ -1701,22 +1663,23 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </section>
 
-<!-- CONTACT (C29-C33) -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-inner fade-in">
       <h2 class="section-title">רוצים לדעת עוד?</h2>
-      <p class="section-subtitle" style="margin-bottom:8px;">השאירו פרטים לקבלת הסיליבוס המלא והרשמה ליום פתוח</p>
+      <p class="section-subtitle" style="margin-bottom:8px;">השאירו פרטים ונחזור אליכם בהקדם</p>
       <form class="contact-form" onsubmit="return false;">
         <div class="contact-row-single">
           <input type="text" placeholder="שם מלא" required>
           <input type="tel" placeholder="טלפון" required>
+          <input type="email" placeholder="מייל" required>
           <button type="submit" class="btn">שליחה</button>
         </div>
+        <p style="font-size:13px; color:var(--dark-light); opacity:0.7; margin-top:10px; text-align:right;">אנו מכבדים את הפרטיות שלך</p>
       </form>
-      <p style="font-size:13px; color:var(--dark-light); opacity:0.7; margin-top:10px;">אנו מכבדים את הפרטיות שלך</p>
       <div style="margin-top:20px;">
-        <a href="https://wa.me/972500000000" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
+        <a href="https://wa.me/972515518867" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           שלחו לנו וואטסאפ
         </a>
@@ -1725,24 +1688,15 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter">
-  <div class="container fade-in">
-    <h3>מוזמנים באהבה להצטרף לניוזלטר של ציפי</h3>
-    <p>עדכונים, תכנים מעוררי השראה ומידע על קורסים ואירועים</p>
-    <form class="newsletter-form" onsubmit="return false;">
-      <input type="text" placeholder="שם">
-      <input type="email" placeholder="אימייל">
-      <input type="tel" placeholder="טלפון">
-      <button type="submit" class="btn">לשליחה</button>
-    </form>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <p>ציפי נגב &ndash; יוגה אינטגרטיבית &copy; 2026 | רחוב אלפסי 1, נחלת עדה, הרצליה</p>
+    <p style="margin-top:8px;">
+      <a href="mailto:yogaintegrativit@gmail.com">yogaintegrativit@gmail.com</a>
+      &nbsp;|&nbsp;
+      <a href="https://wa.me/972515518867">051-551-8867</a>
+    </p>
   </div>
 </footer>
 
