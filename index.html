@@ -235,8 +235,15 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: clamp(30px, 4vw, 54px);
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: var(--dark);
+}
+.hero-eyebrow {
+  color: var(--purple);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0 0 22px;
 }
 .hero-content p {
   font-size: 18px;
@@ -256,7 +263,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 8px 18px 8px 14px;
   font-size: 14px;
   color: var(--purple);
-  margin-bottom: 32px;
+  margin-top: 32px;
   font-weight: 500;
 }
 .hero-badge img { height: 30px; width: auto; flex-shrink: 0; }
@@ -825,6 +832,40 @@ img { max-width: 100%; height: auto; display: block; }
   transform: scale(1.25);
 }
 
+/* ===== MANIFESTO ===== */
+.manifesto {
+  background: var(--peach);
+  padding: 80px 20px;
+  text-align: center;
+}
+.manifesto-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.manifesto p {
+  font-size: clamp(19px, 2.1vw, 24px);
+  line-height: 1.7;
+  color: var(--dark);
+  font-weight: 400;
+  margin: 0;
+}
+.manifesto .manifesto-closing {
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--purple);
+  font-size: clamp(21px, 2.3vw, 26px);
+}
+.manifesto-cta {
+  display: inline-block;
+  margin-top: 32px;
+  color: var(--purple);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: 16px;
+}
+.manifesto-cta:hover { opacity: 0.8; }
+
 /* ===== FAQ ===== */
 .faq {
   background: var(--cream);
@@ -1201,7 +1242,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <h4>תודה!</h4>
       <p>הפרטים התקבלו. ניצור קשר בקרוב.<br>בינתיים אפשר להוריד את הסילבוס כאן:</p>
-      <a href="#syllabus-pdf" class="modal-download" id="syllabusLink" target="_blank">
+      <a href="syllabus.pdf" class="modal-download" id="syllabusLink" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
         הורדת הסילבוס (PDF)
       </a>
@@ -1245,14 +1286,15 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="hero-text-col">
     <div class="hero-content">
       <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
+      <div class="hero-eyebrow">ימים פתוחים לקורס תשפ״ז &ndash; נובמבר 2026</div>
       <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
-      <div class="hero-badge">
-        <img src="yoga teachers.png" alt="ארגון מורי היוגה הישראלי">
-        מוכר ע״י ארגון מורי היוגה בישראל
-      </div>
       <div class="hero-btns">
         <a href="#open-day" class="btn">להרשמה למפגש היכרות</a>
         <button class="btn btn-outline" onclick="openModal()">להורדת הסיליבוס</button>
+      </div>
+      <div class="hero-badge">
+        <img src="yoga teachers.png" alt="ארגון מורי היוגה הישראלי">
+        מוכר ע״י ארגון מורי היוגה בישראל
       </div>
     </div>
   </div>
@@ -1272,10 +1314,9 @@ img { max-width: 100%; height: auto; display: block; }
           <img src="images/1 (66).jpg" alt="ציפי נגב">
         </div>
         <h3>ציפי נגב</h3>
-        <!-- C16: updated title -->
         <div class="team-role">מנהלת בית הספר ליוגה אינטגרטיבית</div>
-        <p>ציפי נגב עוסקת ביוגה קרוב לחמישים שנה. היא חוקרת את הקשר בין התרגול הגופני לבין הפילוסופיה והפסיכולוגיה של היוגה, ומכשירה מורים ומלווי תהליכי ריפוי ביוגה כתרפיה. שירתה כיו״ר ארגון מורי היוגה בישראל ופועלת לקידום היוגה בחינוך ומתנדבת בעמותת ״לב אל לב״ בה הקימה רשת תמיכה של מורות ליוגה-תרפיה.</p>
-        <p style="margin-top:10px; color:var(--purple); font-weight:500;">אבל לפני כל אלה &ndash; היא תלמידה בדרך.</p>
+        <p>תלמידה בדרך היוגה קרוב לחמישים שנה, חוקרת את הקשר בין התרגול הגופני לאינטגרציה נפשית ומסע רוחני. מפתחת את היוגה האינטגרטיבית כגישה של חקירה והפנמה גופנית של הפילוסופיה-פסיכולוגיה של היוגה, ומכשירה מורים ליוגה ויוגה תרפיה אינטגרטיבית למעלה מארבעה עשורים.</p>
+        <p style="margin-top:10px;">שירתה שתי קדנציות כיו״ר ארגון מורי היוגה בישראל, חברה בוועדה לקידום יוגה תרפיה ישראל, ומתנדבת כראשת הצוות המקצועי בעמותת &ldquo;לב אל לב ישראל&rdquo; המלווה לוחמים עם תסמיני PTSD. במסגרת העמותה הקימה רשת תמיכה של מורות ליוגה תרפיה.</p>
         <a href="#" class="link-btn">אודות ציפי</a>
       </div>
       <div class="team-card fade-in">
@@ -1284,8 +1325,8 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
         <h3>טל וקסמן</h3>
         <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
-        <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה ויוגה אינטגרטיבית. ליוותה את ציפי כאסיסטנטית בכירה בקורסי מורים. משלבת תשומת לב, רכות, זרימה, סקרנות ויצירתיות.</p>
-        <p style="margin-top:10px;">מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
+        <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה (יעל זיו) ויוגה אינטגרטיבית (ציפי נגב). אחרי שנים של העמקה וחיפוש ליוותה את ציפי כאסיסטנטית, והתאהבה בשפה הייחודית של היוגה האינטגרטיבית ככלי לחקירה אישית.</p>
+        <p style="margin-top:10px;">בהוראה משלבת תשומת לב, רכות, זרימה, סקרנות ויצירתיות. מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
         <a href="#" class="link-btn">אודות טל</a>
       </div>
     </div>
@@ -1300,16 +1341,14 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="container">
     <div class="uniqueness-inner">
       <div class="uniqueness-text fade-in">
-        <h2 class="section-title">ייחודיות הקורס</h2>
-        <!-- C18: subtitle now dark via CSS -->
-        <p class="section-subtitle">תכנית הלימודים מציעה שילוב נדיר בין עומק תיאורטי לתרגול חווייתי, ומתמקדת בפיתוח המורה הפנימי של כל משתתף.</p>
-        <!-- C19: less spacing via CSS -->
+        <h2 class="section-title">ייחודיות ההכשרה</h2>
+        <p class="section-subtitle">שילוב ייחודי של עומק תיאורטי ותרגול חווייתי, התומך בפיתוח המורה הפנימי של כל משתתף.</p>
         <ul>
-          <li>מרחב קבוצתי מובנה כתהליך התפתחותי</li>
-          <li>הקבוצה משמשת מראה להשתקפויות, קהילה ומשענת</li>
+          <li>מרחב קבוצתי התומך במסע האישי של כל משתתף מנקודת המוצא שלו/שלה</li>
+          <li>הקבוצה מזמנת השתקפויות, למידה הדדית ותמיכה</li>
+          <li>שילוב ייחודי של עומק תיאורטי ותרגול חווייתי</li>
           <li>500 שעות לימוד אקדמיות לאורך שנתיים</li>
           <li>מוכר על ידי ארגון מורי היוגה בישראל</li>
-          <li>הסמכה בינלאומית &ndash; ניתן ללמד בארץ ובעולם</li>
           <li><a href="#integrative" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">גישה אינטגרטיבית ייחודית</a> שתועדה ונחקרה באקדמיה</li>
         </ul>
       </div>
@@ -1353,7 +1392,7 @@ img { max-width: 100%; height: auto; display: block; }
           </div>
           <div>
             <h4>שנה א&rsquo;</h4>
-            <p>נובמבר 2026 &ndash; יוני 2027<br>250 שעות לימוד</p>
+            <p>2.11.2026 &ndash; יוני 2027<br>250 שעות לימוד</p>
           </div>
         </div>
         <div class="detail-item">
@@ -1399,7 +1438,7 @@ img { max-width: 100%; height: auto; display: block; }
       <h2 class="section-title">תכני ההכשרה</h2>
     </div>
     <!-- C20: intro paragraph -->
-    <p class="course-intro fade-in">הכשרת מורים ומורות להוראה מעמיקה, רגישה ומקיפה של יוגה אינטגרטיבית. הבנה רחבה של הגוף, הנפש והתודעה, ויכולת ליישם את עקרונות היוגה בהוראה לאוכלוסיות מגוונות ובמרחבי חיים שונים. אסנות, פראניאמה, מדיטציה והגות, לצד עבודה קבוצתית, תהליכי רפלקציה, ולמידה אישית וקבוצתית.</p>
+    <p class="course-intro fade-in">הכשרת מורים ומורות להוראה מעמיקה, רגישה ומקיפה של יוגה אינטגרטיבית, מתוך הבנה רחבה של הגוף, הנפש והתודעה, ויכולת ליישם את עקרונות היוגה בהוראה לאוכלוסיות מגוונות ובמרחבי חיים שונים. התכנים נעים בין אסנות, פראניאמה, מדיטציה והגות, לבין עבודה קבוצתית, תהליכי רפלקציה ולמידה תוך כדי דינמיקה של שינוי וצמיחה אישית וקבוצתית.</p>
     <!-- C21: purple background, white icons via CSS filter -->
     <div class="principles-grid">
       <div class="principle-card fade-in">
@@ -1475,9 +1514,8 @@ img { max-width: 100%; height: auto; display: block; }
         <!-- C23: no extra spacing -->
         <p>התוכנית מיועדת למתרגלי יוגה משיטות שונות שרוצים להעמיק את התרגול האישי בכל הרבדים: הגופני, האנרגטי, הנפשי והרוחני ולהנכיח את היוגה בחיים האישיים והמקצועיים.</p>
         <p>למי שרוצה להנחות מתוך מודעות ואמפתיה, תוך התאמת התרגול לכל אדם.</p>
-        <p>כמו כן, למטפלים בגישות שונות &ndash; פסיכולוגים, עו&quot;ס, פיזיותרפיסטים, פסיכותרפיסטים, מאמנים, מטפלים במגע, מאמני כושר וספורט ועוד &ndash; אשר מתרגלים יוגה ורוצים לעבור תהליך אישי ולרכוש כלי עומק בשפת היוגה.</p>
-        <!-- C24: bold invitation in bold, separate -->
-        <p class="who-for-invitation">ההזמנה פתוחה גם למי שאינו מעוניין להיות מורה ליוגה, אך מבקש להעמיק את הידע.</p>
+        <p>כמו כן, למטפלים בגישות שונות, מטפלים בתנועה, פסיכולוגים, עו&quot;ס, פיזיותרפיסטים, פסיכותרפיסטים, מאמנים, מטפלים במגע, מאמני כושר וספורט ועוד &ndash; אשר מתרגלים יוגה ורוצים לעבור תהליך אישי ולרכוש כלי עומק בשפת היוגה.</p>
+        <p class="who-for-invitation">הקורס פתוח גם למי שאינו מעוניין להיות מורה ליוגה, אך מבקש להעמיק את ההליכה בדרך.</p>
         <a href="#integrative" class="link-btn">לעקרונות הגישה האינטגרטיבית</a>
       </div>
       <div class="who-for-img fade-in">
@@ -1522,7 +1560,7 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="testimonials-track" id="testimonialsTrack">
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">קורס מורי יוגה אינטגרטיבית של ציפי נגב &ndash; קורס משנה חיים. לא פחות. בענווה, באהבה גדולה ובהכלה אינסופית מזמינה ציפי את תלמידיה למסע יוגי טרנספורמטיבי. כל מפגש למידה עם ציפי הוא קרש קפיצה לחיים של נוכחות מלאה והתבוננות פנימה.</div>
+        <div class="testimonial-body">קורס מורי יוגה אינטגרטיבית של ציפי נגב &ndash; קורס משנה חיים. לא פחות. בענווה, באהבה גדולה ובהכלה אינסופית מזמינה ציפי את תלמידיה למסע יוגי טרנספורמטיבי. כל מפגש הוא קרש קפיצה לחיים של נוכחות מלאה והתבוננות פנימה.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">כרמית חיות</div></div>
@@ -1530,7 +1568,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">הקורס שלך פתח לי צוהר לעולם רגשי גדול, עמוק ורחב שקיים בתוכי. אני מרגישה טובה יותר כבת אדם &ndash; פתוחה, מכילה, קשובה ואמפטית יותר לסובבים אותי. זה ממש לא מובן מאליו מבחינתי ואת אור גדול עבורי.</div>
+        <div class="testimonial-body">הקורס של ציפי פתח לי צוהר לעולם רגשי גדול, עמוק ורחב שקיים בתוכי. אני מרגישה טובה יותר כבת אדם &ndash; פתוחה, מכילה, קשובה ואמפטית יותר לסובבים אותי. זה ממש לא מובן מאליו, ואת אור גדול עבורי.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">עדי עזריה</div><div class="testimonial-title">מורה יוגה ובוגרת יוגה תרפיה אינטגרטיבית</div></div>
@@ -1538,7 +1576,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">הקורס ׳יוגה תרפיה׳ בהנחייתה של ציפי נגב הוא קורס מעצים ומשנה חיים. ללמוד אצל ציפי פירושו ללמוד שפה ייחודית ועוצמתית. שפה רוחנית ונפשית שמדברת ישירות אל הלב, מרגיעה, מנחמת ומטפחת חמלה וקבלה עצמית.</div>
+        <div class="testimonial-body">הקורס בהנחייתה של ציפי הוא קורס מעצים ומשנה חיים. ללמוד אצל ציפי פירושו ללמוד שפה ייחודית ועוצמתית &ndash; שפה רוחנית ונפשית שמדברת ישירות אל הלב, מרגיעה, מנחמת ומטפחת חמלה וקבלה עצמית.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">מירב הגלילי</div></div>
@@ -1546,7 +1584,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">מעבר לחוויה אישית וקבוצתית מעצימה, הקורס פתח בפני אפשרות להתבונן במה היא תרפיה בצורה חדשה. ציפי מלמדת שפה טיפולית ייחודית, פשוטה, בהירה וחכמה. כפסיכולוגית קלינית, הקורס פתח בפני אפשרות חדשה ומרגשת לשלב כלים מעולם היוגה במפגשים הטיפוליים.</div>
+        <div class="testimonial-body">ציפי מלמדת שפה טיפולית ייחודית, פשוטה, בהירה וחכמה. מעבר לחוויה אישית וקבוצתית מעצימה, הקורס פתח בפני אפשרות להתבונן במה היא תרפיה בצורה חדשה. כפסיכולוגית קלינית, הוא פתח בפני אפשרות מרגשת לשלב כלים מעולם היוגה במפגשים הטיפוליים שלי.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">מיכל רומם</div><div class="testimonial-title">פסיכולוגית קלינית ומורה ליוגה</div></div>
@@ -1554,7 +1592,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">למזלי הגדול הכרתי את ציפי נגב, מעיין נובע של עומק וידע, מורה לחיים ומורה לדרך היוגה. השפה הייחודית של היוגה האינטגרטיבית היא שזירה של תנועה ונשימה, פילוסופיה ופסיכולוגיה. עבורי זוהי הדרך הנכונה לתרגל ולחיות יוגה על ומחוץ למזרן.</div>
+        <div class="testimonial-body">הכרתי את ציפי, מעיין נובע של עומק וידע, מורה לחיים ולדרך היוגה. השפה הייחודית של היוגה האינטגרטיבית היא שזירה של תנועה ונשימה, פילוסופיה ופסיכולוגיה. עבורי זוהי הדרך הנכונה לתרגל ולחיות יוגה על ומחוץ למזרן.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">ליאת כרמלי</div></div>
@@ -1562,7 +1600,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">הודיה היא המילה הראשונה שעולה בתוכי. לוקחת איתי מרחב עצום של אהבה, ידע, חמלה, חכמת הגוף והנפש שספגתי בשנה הזו. תודה גדולה על היותך, על הדרך שלך, על הדרך שלימדת אותי אל עצמי.</div>
+        <div class="testimonial-body">הודיה היא המילה הראשונה שעולה בתוכי. לוקחת איתי מרחב עצום של אהבה, ידע, חמלה וחכמת הגוף והנפש שספגתי בשנה הזו. תודה גדולה על היותך, על הדרך שלך ועל הדרך שלימדת אותי אל עצמי.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">אסנת שלו</div></div>
@@ -1570,7 +1608,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote">&ldquo;</div>
-        <div class="testimonial-body">האיזון העדין בין המקצועיות לרגישות של ציפי מאפשר לכל תלמיד לעבור את דרכו הייחודית בזמן ובקצב שלו. הכלים המקצועיים הנלמדים בקורס לצד הקהילה הנוצרת סביב הלמידה המשותפת מהווים מקור לכוח וצמיחה.</div>
+        <div class="testimonial-body">האיזון העדין בין המקצועיות לרגישות של ציפי מאפשר לכל תלמיד לעבור את דרכו הייחודית בזמן ובקצב שלו. הכלים המקצועיים הנלמדים בקורס לצד הקהילה שנוצרת סביב הלמידה המשותפת מהווים עבורי מקור לכוח וצמיחה.</div>
         <div class="testimonial-footer">
           <div class="testimonial-avatar"><img src="logo-yogain.png" alt="יוגה אינטגרטיבית"></div>
           <div><div class="testimonial-author">אייל דולינסקי</div><div class="testimonial-title">מלמד כדורגל ומשלב יוגה</div></div>
@@ -1586,6 +1624,20 @@ img { max-width: 100%; height: auto; display: block; }
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
       </button>
     </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-inner fade-in">
+    <p>
+      אם תחליטו להשתתף במסע ההקשבה הפנימית,<br>
+      תחוו עצמכם אוהבים יותר את עצמכם ואת הזולת מאי פעם.<br>
+      גם אם זה לא החלום שלכם להיות מורים ליוגה,<br>
+      החוויה המעודנת מתגלה בפנינו&hellip;
+    </p>
+    <p class="manifesto-closing">יוגה עושים באהבה. יוגה היא אהבה.</p>
+    <a href="#contact" class="manifesto-cta">השאירו פרטים ונחזור אליכם</a>
   </div>
 </section>
 
@@ -1638,16 +1690,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
         </button>
         <div class="faq-answer">
-          <p>הקורס מעוגן בפילוסופיה-פסיכולוגיה של היוגה. נקרא טקסטים מתוך היוגה סוטרה של פטנג׳לי, האתה יוגה פרדיפיקה, בהגוד גיטה, ואופנישד. נלמד על ההיסטוריה והשורשים של היוגה.</p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question">
-          <span>למדתי קורס מורים של 200 שעות, האם אפשר להצטרף לשנה ב׳?</span>
-          <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <p>כן, וגם, חשוב לעשות השלמות כדי להפנים את הגישה והשפה.</p>
+          <p>הקורס מעוגן בפילוסופיה-פסיכולוגיה של היוגה. התרגול הוא תוך כדי חקירה והפנמה גופנית של הפילוסופיה-פסיכולוגיה. נקרא טקסטים מתוך היוגה סוטרה של פטנג&rsquo;לי, האתה יוגה פרדיפיקה, בהגווד גיטה ואופנישדות. נלמד על ההיסטוריה והשורשים של היוגה.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
@@ -1656,7 +1699,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></span>
         </button>
         <div class="faq-answer">
-          <p>יש עבודות להגשה כל חודש כדי לעבד את החומר דרך חקירה וסיפור אישי. שיתוף העבודות בקבוצה הוא מקור לעוצמה, ללמידה ולאינטימיות. בנוסף יש 20 שעות פרקטיקום הוראה שניתן לעשות כבר במהלך הלימודים.</p>
+          <p>יש עבודות להגשה במהלך הקורס, כדי לעבד את החומר דרך חקירה וסיפור אישי. שיתוף העבודות בקבוצה הוא מקור לעוצמה, ללמידה ולאינטימיות. בנוסף יש 20 שעות פרקטיקום הוראה שניתן לעשות כבר במהלך הלימודים.</p>
         </div>
       </div>
     </div>
@@ -1788,11 +1831,6 @@ function svgIcon(paths, vb = '0 0 64 64') {
 }
 
 const principles = [
-  {
-    title: 'אשטנגה יוגה',
-    icon: svgIcon('<circle cx="32" cy="14" r="6"/><path d="M32 20v14M24 28l8 6 8-6"/><path d="M22 44c0-6 4-10 10-10s10 4 10 10"/><path d="M18 54h28"/><circle cx="32" cy="32" r="20" stroke-dasharray="4 3"/>'),
-    desc: 'שמונת האיברים של היוגה – יאמה, נייאמה, אסנה, פרנאיאמה, פרטיאהרה, דהרנה, דהיאנה וסמאדהי – מהווים את עמוד השדרה של ההכשרה. הם מציעים מפת דרכים חיה לתרגול שמשלב גוף, נשימה, ריכוז ותודעה, ומלווה את התלמידים בצמיחה אישית ומקצועית לאורך כל הדרך.'
-  },
   {
     title: 'אינטגרציה',
     icon: svgIcon('<circle cx="24" cy="32" r="14" opacity="0.5"/><circle cx="40" cy="32" r="14" opacity="0.5"/><path d="M32 22v20M28 26c2.5 2 5.5 2 8 0M28 38c2.5-2 5.5-2 8 0"/>'),
