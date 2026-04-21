@@ -1307,7 +1307,7 @@ img { max-width: 100%; height: auto; display: block; }
       <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
       <div class="hero-btns">
         <a href="#open-day" class="btn">להרשמה למפגש היכרות</a>
-        <button class="btn btn-outline" onclick="openModal()">להורדת הסיליבוס</button>
+        <button class="btn btn-outline" onclick="openModal()">להורדת הסילבוס</button>
       </div>
       <div class="hero-badge">
         <img src="yoga teachers.png" alt="ארגון מורי היוגה הישראלי">
@@ -1338,7 +1338,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="team-card fade-in">
         <div class="team-img-wrap">
-          <img src="images/1 (16).jpg" alt="טל וקסמן" style="object-position: center 20%;">
+          <img src="images/1 (16).jpg" alt="טל וקסמן" style="object-position: left;">
         </div>
         <h3>טל וקסמן</h3>
         <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
@@ -1634,11 +1634,11 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
     <div class="testimonials-nav-wrap">
       <button class="testimonials-arrow" id="testimonialsNext" aria-label="הבא">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
       </button>
       <div class="testimonials-dots" id="testimonialsDots"></div>
       <button class="testimonials-arrow" id="testimonialsPrev" aria-label="הקודם">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
       </button>
     </div>
   </div>
@@ -1729,14 +1729,15 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="contact-inner fade-in">
       <h2 class="section-title">רוצים לדעת עוד?</h2>
       <p class="section-subtitle" style="margin-bottom:8px;">השאירו פרטים ונחזור אליכם בהקדם</p>
-      <form class="contact-form" onsubmit="return false;">
+      <form class="contact-form" onsubmit="submitContact(event)">
         <div class="contact-row-single">
-          <input type="text" placeholder="שם מלא" required>
-          <input type="tel" placeholder="טלפון" required>
-          <input type="email" placeholder="מייל" required>
-          <button type="submit" class="btn">שליחה</button>
+          <input type="text" name="name" placeholder="שם מלא" required>
+          <input type="tel" name="phone" placeholder="טלפון" required>
+          <input type="email" name="email" placeholder="מייל" required>
+          <button type="submit" class="btn" id="contactSubmitBtn">שליחה</button>
         </div>
         <p style="font-size:13px; color:var(--dark-light); opacity:0.7; margin-top:10px; text-align:right;">אנו מכבדים את הפרטיות שלך</p>
+        <p id="contactMsg" style="display:none; font-size:15px; margin-top:10px; text-align:center;"></p>
       </form>
       <div style="margin-top:20px;">
         <a href="https://wa.me/972515518867" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
@@ -1804,24 +1805,24 @@ testimonialCards.forEach((_, i) => {
   dot.setAttribute('aria-label', 'עדות ' + (i + 1));
   dot.addEventListener('click', () => {
     const cardWidth = testimonialCards[0].offsetWidth + 24;
-    testimonialsTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+    testimonialsTrack.scrollTo({ left: -(i * cardWidth), behavior: 'smooth' });
   });
   dotsContainerT.appendChild(dot);
 });
 testimonialsTrack.addEventListener('scroll', () => {
   const cardWidth = testimonialCards[0].offsetWidth + 24;
-  const idx = Math.round(testimonialsTrack.scrollLeft / cardWidth);
+  const idx = Math.round(Math.abs(testimonialsTrack.scrollLeft) / cardWidth);
   dotsContainerT.querySelectorAll('.testimonials-dot').forEach((d, i) => {
     d.classList.toggle('active', i === idx);
   });
 });
 document.getElementById('testimonialsNext').addEventListener('click', () => {
   const cardWidth = testimonialCards[0].offsetWidth + 24;
-  testimonialsTrack.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  testimonialsTrack.scrollBy({ left: cardWidth, behavior: 'smooth' });
 });
 document.getElementById('testimonialsPrev').addEventListener('click', () => {
   const cardWidth = testimonialCards[0].offsetWidth + 24;
-  testimonialsTrack.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  testimonialsTrack.scrollBy({ left: -cardWidth, behavior: 'smooth' });
 });
 
 // Syllabus Modal
@@ -1833,10 +1834,54 @@ function closeModal() {
   document.getElementById('syllabusModal').classList.remove('active');
   document.body.style.overflow = '';
 }
-function submitSyllabus(e) {
+async function submitSyllabus(e) {
   e.preventDefault();
+  const name = document.getElementById('modalName').value;
+  const phone = document.getElementById('modalPhone').value;
+  try {
+    await fetch('/.netlify/functions/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, subject: 'בקשת סילבוס' })
+    });
+  } catch (_) {}
   document.getElementById('modalForm').style.display = 'none';
   document.getElementById('modalSuccess').classList.add('active');
+}
+
+async function submitContact(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('contactSubmitBtn');
+  const msg = document.getElementById('contactMsg');
+  btn.disabled = true;
+  btn.textContent = 'שולח...';
+  try {
+    const res = await fetch('/.netlify/functions/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        subject: 'פנייה מהאתר'
+      })
+    });
+    if (res.ok) {
+      msg.textContent = 'הפרטים נשלחו בהצלחה! ניצור קשר בקרוב.';
+      msg.style.color = 'var(--purple)';
+      form.reset();
+    } else {
+      msg.textContent = 'אירעה שגיאה. נסו שוב או פנו אלינו בוואטסאפ.';
+      msg.style.color = '#c0392b';
+    }
+  } catch (_) {
+    msg.textContent = 'אירעה שגיאה. נסו שוב או פנו אלינו בוואטסאפ.';
+    msg.style.color = '#c0392b';
+  }
+  msg.style.display = 'block';
+  btn.disabled = false;
+  btn.textContent = 'שליחה';
 }
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
