@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>הכשרת מורים ליוגה אינטגרטיבית | ציפי נגב</title>
+<title>קורס להכשרת מורים ליוגה אינטגרטיבית | ציפי נגב</title>
 <meta name="description" content="קורס הכשרת מורים ליוגה אינטגרטיבית בהנחיית ציפי נגב וטל וקסמן. 500 שעות, שנתיים, הסמכה בינלאומית. נובמבר 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -263,20 +263,29 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.85;
   font-weight: 400;
 }
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--purple-light);
-  border: 1px solid rgba(123, 94, 167, 0.2);
-  border-radius: 50px;
-  padding: 8px 18px 8px 14px;
-  font-size: 14px;
-  color: var(--purple);
-  margin-top: 32px;
-  font-weight: 500;
+.recognition-bar {
+  background: var(--cream);
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(123, 94, 167, 0.12);
 }
-.hero-badge img { height: 30px; width: auto; flex-shrink: 0; }
+.recognition-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.recognition-inner img { height: 56px; width: auto; flex-shrink: 0; }
+.recognition-inner span {
+  font-size: 22px;
+  color: var(--dark);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .recognition-inner span { font-size: 18px; }
+  .recognition-inner img { height: 48px; }
+}
 .hero-btns {
   display: flex;
   gap: 14px;
@@ -316,7 +325,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===== TEAM ===== */
 .team {
   background: var(--white);
-  padding: 70px 0;
+  padding: 70px 0 70px;
   position: relative;
 }
 .team-wave-top {
@@ -326,6 +335,16 @@ img { max-width: 100%; height: auto; display: block; }
   right: 0;
 }
 .team-wave-top svg { display: block; width: 100%; }
+.team-intro {
+  max-width: 860px;
+  margin: 32px auto 16px;
+  text-align: center;
+  font-size: 17px;
+  color: var(--dark-light);
+  line-height: 1.9;
+}
+.team-intro p { margin-bottom: 16px; }
+.team-intro p:last-child { margin-bottom: 0; }
 /* C17: bring photos closer */
 .team-grid {
   display: grid;
@@ -534,39 +553,26 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--dark-light);
   line-height: 1.9;
 }
-.principles-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+.course-bullets {
+  max-width: 850px;
+  margin: 0 auto;
+  list-style: disc;
+  padding-inline-start: 28px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--dark);
+  columns: 2;
+  column-gap: 48px;
 }
-.principle-card {
-  background: var(--purple);
-  border-radius: var(--radius);
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
+.course-bullets li {
+  margin-bottom: 12px;
+  break-inside: avoid;
 }
-.principle-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+.course-bullets li::marker {
+  color: var(--purple);
 }
-.principle-icon {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 16px;
-  background: var(--purple);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.principle-icon img { width: 70px; height: 70px; object-fit: contain; filter: brightness(0) invert(1); }
-.principle-card h4 {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.6;
-  color: var(--white);
+@media (max-width: 640px) {
+  .course-bullets { columns: 1; }
 }
 
 /* ===== PHOTO CAROUSEL (C22) ===== */
@@ -1164,10 +1170,6 @@ img { max-width: 100%; height: auto; display: block; }
 .mobile-menu a:hover { color: var(--purple); }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .principles-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -1213,8 +1215,6 @@ img { max-width: 100%; height: auto; display: block; }
 
   .details-card { padding: 32px 24px; }
   .details-grid { grid-template-columns: 1fr; }
-
-  .principles-grid { grid-template-columns: repeat(2, 1fr); }
 
   .photo-item { width: 220px; height: 280px; border-radius: var(--radius-sm); }
   .photo-nav { display: none; }
@@ -1267,6 +1267,32 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </div>
 
+<!-- OPEN-DAY REGISTRATION MODAL -->
+<div class="modal-overlay" id="openDayModal" onclick="if(event.target===this)closeOpenDayModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeOpenDayModal()" aria-label="סגור">&#x2715;</button>
+    <div id="openDayForm">
+      <div style="width:60px;height:60px;background:var(--purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7B5EA7"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+      </div>
+      <h3>הרשמו למפגש היכרות</h3>
+      <p>השאירו פרטים ונחזור אליכם עם כל המידע</p>
+      <form class="modal-form" onsubmit="submitOpenDay(event)">
+        <input type="text" placeholder="שם מלא" required id="openDayName">
+        <input type="tel" placeholder="טלפון" required id="openDayPhone">
+        <button type="submit" class="btn">תרשמו אותי למפגש היכרות</button>
+      </form>
+    </div>
+    <div class="modal-success" id="openDaySuccess">
+      <div class="modal-success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+      </div>
+      <h4>תודה!</h4>
+      <p>הפרטים התקבלו. ניצור קשר בקרוב.</p>
+    </div>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="container nav-inner">
@@ -1302,18 +1328,22 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
   <div class="hero-text-col">
     <div class="hero-content">
-      <h1>הכשרת מורים<br>יוגה אינטגרטיבית</h1>
+      <h1>קורס להכשרת מורים<br>ליוגה אינטגרטיבית</h1>
       <div class="hero-eyebrow">ימים פתוחים לקורס תשפ״ז &ndash; נובמבר 2026</div>
       <p>קורס להכשרת מורים ליוגה אינטגרטיבית הוא מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה.</p>
       <div class="hero-btns">
-        <a href="#open-day" class="btn">להרשמה למפגש היכרות</a>
+        <button type="button" class="btn" onclick="openOpenDayModal()">להרשמה למפגש היכרות</button>
         <button class="btn btn-outline" onclick="openModal()">להורדת הסילבוס</button>
       </div>
-      <div class="hero-badge">
-        <img src="yoga teachers.png" alt="ארגון מורי היוגה הישראלי">
-        מוכר ע״י ארגון מורי היוגה בישראל
-      </div>
     </div>
+  </div>
+</section>
+
+<!-- RECOGNITION BAR -->
+<section class="recognition-bar">
+  <div class="container recognition-inner">
+    <img src="yoga teachers.png" alt="ארגון מורי היוגה הישראלי">
+    <span>מוכר ע״י ארגון מורי היוגה בישראל</span>
   </div>
 </section>
 
@@ -1321,7 +1351,18 @@ img { max-width: 100%; height: auto; display: block; }
 <!-- TEAM -->
 <section class="team" id="team">
   <div class="container">
-    <div class="fade-in" style="text-align:center;">
+        <div class="fade-in" style="text-align:center;">
+      <h2 class="section-title">על הקורס</h2>
+      <!-- C14: removed subtitle "מורות בדרך, מלוות במסע" -->
+    </div>
+        <div class="team-intro fade-in">
+      <p>קורס הכשרת מורים ליוגה אינטגרטיבית הוא קורס מקצועי מעמיק המקנה יסודות של יוגה תוך כדי תרגול חקירה ופנמה. הגישה האינטגרטיבית מיוחדת בזה שהיא שוזרת את הפילוסופיה-פסיכולוגיה של היוגה בתרגול הגופני.</p>
+      <p>הקורס הוא מסע עומק של תרגול, למידה, ריפוי וצמיחה אישית בדרך היוגה, תוך הקניית מיומנויות הוראה.</p>
+      <p>הגישה האינטגרטיבית החוקרת והייחודית, תועדה, נחקרה ונחקרת באקדמיה. הגישה מבוססת על יוגה הקלאסית, פסיכולוגיה בת זמננו וחקר המוח.</p>
+      <p>הלמידה בקורס מתאפיינת בשילוב ושזירה ייחודית של הידע התיאורטי עם התרגול לכדי למארג אינטגרטיבי של תנועה, נשימה, פילוסופיה ופסיכולוגיה של היוגה.</p>
+      <p>משך הקורס שנתיים בהיקף של 500 שעות. זהו מסע עומק של למידה, ריפוי וצמיחה אישית בדרך היוגה. קורס תהליכי, אישי ומקצועי, שבו הידע התיאורטי נשזר בתרגול למארג אינטגרטיבי של תנועה, נשימה, פילוסופיה ופסיכולוגיה של היוגה.</p>
+    </div>
+    <div class="fade-in" style="text-align:center; margin-top: 40px;">
       <h2 class="section-title">צוות ההוראה</h2>
       <!-- C14: removed subtitle "מורות בדרך, מלוות במסע" -->
     </div>
@@ -1334,7 +1375,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="team-role">מנהלת בית הספר ליוגה אינטגרטיבית</div>
         <p>תלמידה בדרך היוגה קרוב לחמישים שנה, חוקרת את הקשר בין התרגול הגופני לאינטגרציה נפשית ומסע רוחני. מפתחת את היוגה האינטגרטיבית כגישה של חקירה והפנמה גופנית של הפילוסופיה-פסיכולוגיה של היוגה, ומכשירה מורים ליוגה ויוגה תרפיה אינטגרטיבית למעלה מארבעה עשורים.</p>
         <p style="margin-top:10px;">שירתה שתי קדנציות כיו״ר ארגון מורי היוגה בישראל, חברה בוועדה לקידום יוגה תרפיה ישראל, ומתנדבת כראשת הצוות המקצועי בעמותת &ldquo;לב אל לב ישראל&rdquo; המלווה לוחמים עם תסמיני PTSD. במסגרת העמותה הקימה רשת תמיכה של מורות ליוגה תרפיה.</p>
-        <a href="#" class="link-btn">אודות ציפי</a>
+        <a href="https://yogain.co.il/about/" target="_blank" rel="noopener" class="link-btn">אודות ציפי</a>
       </div>
       <div class="team-card fade-in">
         <div class="team-img-wrap">
@@ -1344,7 +1385,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="team-role">תלמידה בדרך היוגה מעל 20 שנה</div>
         <p>בוגרת שני קורסי הכשרת מורים: האתה-ראג׳ה יוגה (יעל זיו) ויוגה אינטגרטיבית (ציפי נגב). אחרי שנים של העמקה וחיפוש ליוותה את ציפי כאסיסטנטית, והתאהבה בשפה הייחודית של היוגה האינטגרטיבית ככלי לחקירה אישית.</p>
         <p style="margin-top:10px;">בהוראה משלבת תשומת לב, רכות, זרימה, סקרנות ויצירתיות. מאמינה ביוגה ככלי עוצמתי לריפוי וחיזוק אישי וקהילתי.</p>
-        <a href="#" class="link-btn">אודות טל</a>
+        <a href="https://www.facebook.com/tal.wachsmann.2025/" target="_blank" rel="noopener" class="link-btn">אודות טל</a>
       </div>
     </div>
     <div class="team-synergy fade-in">
@@ -1409,7 +1450,7 @@ img { max-width: 100%; height: auto; display: block; }
           </div>
           <div>
             <h4>שנה א&rsquo;</h4>
-            <p>2.11.2026 &ndash; יוני 2027<br>250 שעות לימוד</p>
+            <p>2.11.2026 &ndash; 28.6.2027<br>250 שעות לימוד</p>
           </div>
         </div>
         <div class="detail-item">
@@ -1418,7 +1459,7 @@ img { max-width: 100%; height: auto; display: block; }
           </div>
           <div>
             <h4>שנה ב&rsquo;</h4>
-            <p>נובמבר 2027 &ndash; יוני 2028<br>250 שעות לימוד</p>
+            <p>1.11.2027 &ndash; 26.6.2028<br>250 שעות לימוד</p>
           </div>
         </div>
       </div>
@@ -1438,7 +1479,7 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="open-day-body">
       מפגש ההיכרות יאפשר לך להכיר את ציפי וטל ואת השפה הייחודית של היוגה האינטגרטיבית. נתרגל יחד, נשוחח, ונקדיש זמן להסבר על מבנה הקורס, התכנים והדרישות, וכמובן לשאלות.<br>המפגש ללא עלות אך דורש הרשמה מראש.
     </div>
-    <button class="btn" onclick="openModal()">להרשמה למפגש היכרות</button>
+    <button class="btn" onclick="openOpenDayModal()">להרשמה למפגש היכרות</button>
     <div style="margin-top:20px;">
       <a href="https://wa.me/972515518867" target="_blank" class="btn btn-whatsapp" style="font-size:17px; padding:14px 32px; gap:10px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1456,41 +1497,16 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
     <!-- C20: intro paragraph -->
     <p class="course-intro fade-in">הכשרת מורים ומורות להוראה מעמיקה, רגישה ומקיפה של יוגה אינטגרטיבית, מתוך הבנה רחבה של הגוף, הנפש והתודעה, ויכולת ליישם את עקרונות היוגה בהוראה לאוכלוסיות מגוונות ובמרחבי חיים שונים. התכנים נעים בין אסנות, פראניאמה, מדיטציה והגות, לבין עבודה קבוצתית, תהליכי רפלקציה ולמידה תוך כדי דינמיקה של שינוי וצמיחה אישית וקבוצתית.</p>
-    <!-- C21: purple background, white icons via CSS filter -->
-    <div class="principles-grid">
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (1).png" alt=""></div>
-        <h4>תרגול יוגה מבוסס תודעה</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (2).png" alt=""></div>
-        <h4>עוגני בטיחות ועקרונות ליבה באימון</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (3).png" alt=""></div>
-        <h4>שפה גופנית-רגשית עדינה ומדויקת</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (4).png" alt=""></div>
-        <h4>התפתחות אישית</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (5).png" alt=""></div>
-        <h4>העמקה בפילוסופיה</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (6).png" alt=""></div>
-        <h4>כלים להוראה אותנטית</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (7).png" alt=""></div>
-        <h4>הנחיה כמרחב ריפוי</h4>
-      </div>
-      <div class="principle-card fade-in">
-        <div class="principle-icon"><img src="icons/yogain (8).png" alt=""></div>
-        <h4>עבודה קבוצתית טרנספורמטיבית</h4>
-      </div>
-    </div>
+    <ul class="course-bullets fade-in">
+      <li>תרגול יוגה מבוסס תודעה</li>
+      <li>עוגני בטיחות ועקרונות ליבה באימון</li>
+      <li>שפה גופנית-רגשית עדינה ומדויקת</li>
+      <li>התפתחות אישית</li>
+      <li>העמקה בפילוסופיה</li>
+      <li>כלים להוראה אותנטית</li>
+      <li>הנחיה כמרחב ריפוי</li>
+      <li>עבודה קבוצתית טרנספורמטיבית</li>
+    </ul>
     <div style="text-align:center; margin-top:40px;">
       <button class="btn btn-outline" onclick="openModal()">לקבלת הסילבוס המלא</button>
     </div>
@@ -1849,6 +1865,30 @@ async function submitSyllabus(e) {
   document.getElementById('modalSuccess').classList.add('active');
 }
 
+// Open-Day Registration Modal
+function openOpenDayModal() {
+  document.getElementById('openDayModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeOpenDayModal() {
+  document.getElementById('openDayModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+async function submitOpenDay(e) {
+  e.preventDefault();
+  const name = document.getElementById('openDayName').value;
+  const phone = document.getElementById('openDayPhone').value;
+  try {
+    await fetch('/.netlify/functions/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, subject: 'הרשמה למפגש היכרות' })
+    });
+  } catch (_) {}
+  document.getElementById('openDayForm').style.display = 'none';
+  document.getElementById('openDaySuccess').classList.add('active');
+}
+
 async function submitContact(e) {
   e.preventDefault();
   const form = e.target;
@@ -1884,7 +1924,7 @@ async function submitContact(e) {
   btn.textContent = 'שליחה';
 }
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Escape') { closeModal(); closeOpenDayModal(); }
 });
 
 // Integrative Principles Viewer
@@ -1937,6 +1977,11 @@ const principles = [
     title: 'אוטונומיה, ריבונות',
     icon: svgIcon('<circle cx="32" cy="18" r="7"/><path d="M32 25v20"/><path d="M22 34l10-4 10 4"/><path d="M20 52h24"/><path d="M24 48l8-3 8 3"/><circle cx="32" cy="12" r="2" fill="#7B5EA7" stroke="none"/>'),
     desc: 'מטרת ההכשרה היא לפתח מורים ריבוניים – כאלה שמלמדים מתוך הקול הייחודי שלהם ולא מתוך חיקוי. אנו מטפחים אוטונומיה מקצועית ואישית, ומעודדים כל בוגר למצוא את הדרך שלו ביוגה ובהוראה.'
+  },
+  {
+    title: 'לכידות',
+    icon: svgIcon('<circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="6" fill="#7B5EA7" stroke="none"/><path d="M32 4v8M32 52v8M4 32h8M52 32h8"/>'),
+    desc: 'היוגה האינטגרטיבית מבוססת על המודל הקלאסי של שמונת אברי היוגה: טיפוח הקוד האתי – יאמה, ההתנהלות הפנימית – ניאמה, יציבות נינוחה – אסנה, העמקת הנשימה – פרניאמה, התכנסות החושים – פרטיהרה, ריכוז – דהרנה, התמסרות – דיאנה, היספגות – סמדהי.'
   }
 ];
 
