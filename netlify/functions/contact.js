@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     },
     body: JSON.stringify({
       from: 'ציפי נגב <noreply@resend.iwise.co.il>',
-      to: ['roybalsam@gmail.com'],
+      to: ['yogaintegrativit@gmail.com,roybalsam@gmail.com'],
       subject: subject || 'פנייה חדשה מהאתר',
       html
     })
