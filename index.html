@@ -1853,6 +1853,19 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lbOverlay">
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-close" id="lbClose" aria-label="סגור">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="הקודם">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+  </button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="הבא">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+  </button>
+  <span class="lb-counter" id="lbCounter"></span>
+</div>
+
 <script>
 // Hamburger menu
 const hamburger = document.getElementById('hamburger');
@@ -2119,7 +2132,6 @@ let lbImages = [], lbIdx = 0;
 
   // Swipe support
   let touchX = null;
-  const img = document.getElementById('lbImg');
   overlay.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
   overlay.addEventListener('touchend', (e) => {
     if (touchX === null) return;
@@ -2163,17 +2175,5 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-<!-- LIGHTBOX -->
-<div class="lb-overlay" id="lbOverlay">
-  <img class="lb-img" id="lbImg" src="" alt="">
-  <button class="lb-close" id="lbClose" aria-label="סגור">✕</button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="הקודם">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-  </button>
-  <button class="lb-nav lb-next" id="lbNext" aria-label="הבא">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
-  </button>
-  <span class="lb-counter" id="lbCounter"></span>
-</div>
 </body>
 </html>
